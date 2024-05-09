@@ -1,13 +1,82 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap');
+
+
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: "Manrope", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 900;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: rgb(41, 41, 41);
+  z-index: 10000;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+.App {
+  position: relative;
+}
+
+.video-section {
+  position: relative;
+  overflow: hidden;
+}
+
+.video-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+}
+
+
+.content-wrapper {
+  transition: transform 0.3s ease;
+  transform: translateX(0);
+}
+
+.content-wrapper.pushed {
+  transform: translateX(300px); /* Adjust width based on menu width */
+}
+
+
+.content-overlay {
+  position: relative;
+  z-index: 1;
+}
+
+.game-list-section {
+  max-height: 800px; 
+  /* overflow-y: auto;  */
+  overflow-x: hidden;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.discount-section {
+  max-height: 500px;
+  overflow-y: hidden;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.footer-section {
+  width: 100%;
+  position: relative;
+  display: flex;
+  bottom: 0;
+  background: #181818;
+  color: #f1f1f1;
+  padding: 100px 0 30px;
+  font-size: 13px;
+  line-height: 20px;
+  .footer-content {
+    width: 100%;}
 }
