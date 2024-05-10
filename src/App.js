@@ -50,18 +50,19 @@ import React, { useState } from "react";
 import Navbar from "./Components/Navbar";
 import VideoBackground from "./Assets/Home .mp4";
 import GameList from "./Components/GameList";
+import Menu from "./Components/Menu/Menu";
 import Discount from "./Components/Discount";
 import Sponsors from "./Components/Sponsors";
 import "./App.css"; // Import CSS for styling
 import SearchBar from "./Components/Menu/SearchBar";
-import Footer from "./Components/Footer"
+import Footer from "./Components/Footer";
 
 const App = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [filteredGames, setFilteredGames] = useState([]);
 
   const toggleMenu = () => {
-    setIsMenuOpen((prev) => !prev);
+    setIsMenuOpen(!isMenuOpen);
   };
 
   // Function to handle search
@@ -80,10 +81,29 @@ const App = () => {
     }
   };
 
+//   return (
+//     <div class="">
+//   <div class="w-full overflow-hidden">  <div class="flex overflow-x-auto space-x-4">
+
+//     {Array.from({ length: 10 }).map((_, index) => (
+//       <div
+//         key={index}
+//         class="w-64 h-64 bg-red-500 rounded-lg flex-shrink-0"
+//       ></div>
+//     ))}
+//       </div>
+//   </div>
+// </div>
+
+//   )
+
   return (
     <div className="App">
       <Navbar onMenuToggle={toggleMenu} />
-      <div className={`content-wrapper ${isMenuOpen ? "pushed" : ""}`}>
+      <div className="flex">
+      <Menu isOpen={isMenuOpen} onClose={toggleMenu} />
+      {/* <div className={`content-wrapper ${isMenuOpen ? "pushed" : ""}`}> */}
+      <div className="flex-1">
         <section className="video-section">
           <video
             src={VideoBackground}
@@ -97,23 +117,22 @@ const App = () => {
             {/* Pass handleSearch function to SearchBar */}
             {/* <SearchBar onSearch={handleSearch} />*/}
             {/* Pass filteredGames to GameList */}
-            <div className="game-list-section">
+            <div className="game-list-section px-4">
               <GameList games={filteredGames} />
             </div>
           </div>
         </section>
-        <section>
-          <div className="discount-section">
-            <Discount />
-          </div>
+        <section className="discount-section">
+          <Discount />
         </section>
 
-        <div>
+         {/*<div>
           <div className="h-screen"></div>
           <Footer />
-        </div>
+        </div> */}
 
         {/* <Sponsors /> */}
+      </div>
       </div>
     </div>
   );

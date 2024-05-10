@@ -4,28 +4,20 @@ import { Link } from "react-router-dom";
 import { HiMenuAlt1 } from "react-icons/hi";
 import Menu from "./Menu/Menu";
 
-const Navbar = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-  const toggleMenu = () => {
-    setIsMenuOpen((prev) => !prev);
-  };
-
+const Navbar = ({onMenuToggle}) => {
   return (
     <nav className="bg-black py-4">
       <div className="container mx-auto flex items-center justify-between">
-        <div className="flex items-center justify-between px-4 py-4 ">
-          {/* Menu Kebab Icon */}
-          {/* flex text-white h-8 w-20  */}
+         <div className="flex items-center justify-between px-4 py-4 ">
           <HiMenuAlt1
             className="cursor-pointer size-12  flex items-center justify-center text-white"
-            onClick={toggleMenu} // Add onClick event to open/close menu
+            onClick={onMenuToggle} // Add onClick event to open/close menu
           />
         </div>
 
         {/* <div className="flex items-center justify-between px-10 py-8 z-50 "> */}
           {/* Logo with Link to Home */}
-          <Link to="/" className="flex items-center text-white ml-28 px-10 py-8 z-">
+          <Link to="/" className="flex items-center text-white ml-28 px-10 py-8 ">
             <img src={Logo} alt="Logo" className="h-14 w-auto" />
           </Link>
           
@@ -47,8 +39,8 @@ const Navbar = () => {
           </Link>
         </div>
       </div>
-      {/* Render the Menu component */}
-      {isMenuOpen && <Menu isOpen={isMenuOpen} onClose={toggleMenu} />}
+      {/* Render the Menu component */}fd
+      {/* {isMenuOpen && <Menu isOpen={isMenuOpen} onClose={toggleMenu} />} */}
     </nav>
   );
 };

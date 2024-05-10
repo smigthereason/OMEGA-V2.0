@@ -2,10 +2,11 @@ import React, { useState, useEffect } from "react";
 import { FaXbox, FaWindows, FaApple, FaLinux } from "react-icons/fa";
 import { SiPlaystation5, SiPlaystation4 } from "react-icons/si";
 import { BsNintendoSwitch, BsAndroid2 } from "react-icons/bs";
-import { FaStar, FaStarHalfAlt  } from "react-icons/fa";
+import { FaStar, FaStarHalfAlt } from "react-icons/fa";
+import TextWithMarquee from "./TextWithMarquee";
 
-const GameList = ({filteredGames}) => {
-  console.log("Games received in GameList:", filteredGames)
+const GameList = ({ filteredGames }) => {
+  console.log("Games received in GameList:", filteredGames);
   const [games, setGames] = useState([]);
 
   useEffect(() => {
@@ -30,21 +31,21 @@ const GameList = ({filteredGames}) => {
   const getPlatformIcon = (platformName) => {
     switch (platformName.toLowerCase()) {
       case "pc":
-        return <FaWindows />;
+        return <FaWindows size={24} />;
       case "playstation 5":
-        return <SiPlaystation5 />;
+        return <SiPlaystation5 size={24} />;
       case "playstation 4":
-        return <SiPlaystation4 />;
+        return <SiPlaystation4 size={24} />;
       case "xbox series s/x":
-        return <FaXbox />;
+        return <FaXbox size={24} />;
       case "nintendo switch":
-        return <BsNintendoSwitch />;
+        return <BsNintendoSwitch size={24} />;
       case "macos":
-        return <FaApple />;
-      case "android" :
-        return <BsAndroid2 />;
+        return <FaApple size={24} />;
+      case "android":
+        return <BsAndroid2 size={24} />;
       case "linux":
-        return <FaLinux />;
+        return <FaLinux size={24} />;
       default:
         return null;
     }
@@ -65,7 +66,10 @@ const GameList = ({filteredGames}) => {
     return (
       <div className="flex">
         {stars.map((star, index) => (
-          <div key={index} className="flex items-center text-center justify-between">
+          <div
+            key={index}
+            className="flex items-center text-center justify-between"
+          >
             {star}
           </div>
         ))}
@@ -74,40 +78,51 @@ const GameList = ({filteredGames}) => {
   };
 
   return (
-    <div className="grid grid-cols-1 ps-4 pr-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+    // <div className="grid grid-cols-1 ps-4 pr-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+    <div className="grid grid-cols-4 gap-4">
       {games.map((game) => (
-        <div
+        <a
           key={game.id}
-          className="bg-transparent bg-opacity-60 backdrop-blur-lg shadow-lg rounded-lg overflow-hidden text-white"
+          className="bg-transparent bg-opacity-60 backdrop-blur-lg shadow-lg rounded-lg overflow-hidden text-white border-2 border-gray-500"
+          href="/login"
         >
           <img
             src={game.background_image}
             alt={game.name}
             className="w-full h-48 object-cover object-center px-4 py-4 rounded-xl"
           />
-          <div className="p-4">
-            <h2 className="text-xl font-semibold mb-2">{game.name}</h2>
-            <div className="flex items-center mb-2">
-              <span className="text-white mr-2">Platforms:</span>
-              {game.platforms.map((platform) => (
-                <span key={platform.platform.id} className="flex h-4 w-6">
-                  {getPlatformIcon(platform.platform.name)}
-                </span>
-              ))}
+          <div className="p-4 flex flex-col justify-between items-center">
+            <div>
+              {/* <h2 className="text-xl font-semibold mb-2">{game.name}</h2> */}
+              <TextWithMarquee className="text-xl font-semibold mb-2">
+                {game.name}
+              </TextWithMarquee>
+              <div className="flex items-center justify-center mb-2 gap-3">
+                {game.platforms.map((platform) => {
+                  const platformIcon = getPlatformIcon(platform.platform.name);
+                  if (platformIcon) {
+                    return (
+                      <span key={platform.platform.id}>{platformIcon}</span>
+                    );
+                  }
+                })}
+              </div>
+              <div className="my-4">
+                <p className="text-white">Genres:</p>
+                <TextWithMarquee>
+                  {game.genres.map((genre) => genre.name).join(", ")}
+                </TextWithMarquee>
+                {/* <p className={`marquee-text ${isMarquee ? 'animate-marquee whitespace-nowrap' : ''}`}>{game.genres.map((genre) => genre.name).join(", ")}</p> */}
+              </div>
             </div>
-            <p className=" text-white mb-2">
-              Genres: {game.genres.map((genre) => genre.name).join(", ")}
+            <p className="text-center text-white mb-2 ">
+              {renderRatingStars(game.rating)}
             </p>
-            <p className="text-white mb-2 ">
-              Rating: {renderRatingStars(game.rating)}
-            </p>
-            
           </div>
-        </div>
+        </a>
       ))}
     </div>
   );
 };
 
 export default GameList;
-
