@@ -25,6 +25,7 @@ import App from './App';
 import Login from './Components/Login';
 import SignupPage from './Components/signup';
 import Settings from "./Components/Settings"
+import Search from './Components/Search';
 // import reportWebVitals from './reportWebVitals';
 
 const router = createBrowserRouter([
@@ -35,6 +36,10 @@ const router = createBrowserRouter([
   {
     path: "/settings",
     element:<Settings/>
+  },
+  {
+    path: "/search",
+    element: <Search />
   },
  
   {

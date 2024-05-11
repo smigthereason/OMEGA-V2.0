@@ -4,7 +4,7 @@ import { MdOutlineDashboard } from "react-icons/md";
 import { RiSettings4Line } from "react-icons/ri";
 import { TbReportAnalytics } from "react-icons/tb";
 import { AiOutlineUser, AiOutlineHeart } from "react-icons/ai";
-import { FiMessageSquare, FiFolder, FiShoppingCart } from "react-icons/fi";
+import { FiMessageSquare, FiSearch, FiShoppingCart } from "react-icons/fi";
 import { Link } from "react-router-dom";
 
 const Menu = ({isOpen}) => {
@@ -13,7 +13,7 @@ const Menu = ({isOpen}) => {
     { name: "user", link: "/", icon: AiOutlineUser },
     // { name: "messages", link: "/", icon: FiMessageSquare },
     // { name: "analytics", link: "/", icon: TbReportAnalytics, margin: true },
-    // { name: "File Manager", link: "/", icon: FiFolder },
+    { name: "Search", link: "/search", icon: FiSearch },
     { name: "Cart", link: "/", icon: FiShoppingCart },
     // { name: "Saved", link: "/", icon: AiOutlineHeart, margin: true },
     { name: "Settings", link: "/settings", icon: RiSettings4Line },
