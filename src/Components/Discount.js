@@ -75,7 +75,7 @@ const Discount = () => {
     const fetchGames = async () => {
       try {
         const response = await fetch(
-          "https://api.rawg.io/api/games?key=API_KEY&dates=2016-01-01,2022-12-31&ordering=-added&page_size=40&genres=sports,action,arcade,racing"
+          `https://api.rawg.io/api/games?key=${API_KEY}&dates=2016-01-01,2022-12-31&ordering=-added&page_size=40&genres=sports,action,arcade,racing`
         );
         if (!response.ok) {
           throw new Error("Network response was not ok.");

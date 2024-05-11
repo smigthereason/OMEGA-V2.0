@@ -20,7 +20,7 @@ const SearchPage = () => {
     const timeout = setTimeout(async () => {
       try {
         const response = await fetch(
-          `https://api.rawg.io/api/games?key=API_KEY&search=${searchQuery}`
+          `https://api.rawg.io/api/games?key=${API_KEY}&search=${searchQuery}`
         );
         if (!response.ok) {
           throw new Error("Failed to fetch games");
@@ -45,7 +45,7 @@ const SearchPage = () => {
   const fetchRandomGames = async () => {
     try {
       const response = await fetch(
-        "https://api.rawg.io/api/games?key=API_KEY&dates=2022-01-01,2024-01-31&ordering=-added&page_size=30"
+        `https://api.rawg.io/api/games?key=${API_KEY}&dates=2022-01-01,2024-01-31&ordering=-added&page_size=30`
       );
       if (!response.ok) {
         throw new Error("Failed to fetch random games");
