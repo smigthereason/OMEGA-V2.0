@@ -16,12 +16,12 @@ const Menu = ({isOpen}) => {
     // { name: "File Manager", link: "/", icon: FiFolder },
     { name: "Cart", link: "/", icon: FiShoppingCart },
     // { name: "Saved", link: "/", icon: AiOutlineHeart, margin: true },
-    { name: "Setting", link: "/settings", icon: RiSettings4Line },
+    { name: "Settings", link: "/settings", icon: RiSettings4Line },
   ];
   return (
     <section className="flex gap-6">
       <div
-        className={`bg-[#0e0e0e] min-h-screen ${
+        className={`bg-[#000000] min-h-screen ${
           isOpen ? "w-72" : "w-16"
         } duration-500 text-gray-100 px-4`}
       >

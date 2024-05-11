@@ -357,13 +357,13 @@ const Discount = () => {
             <div className="flex items-center justify-center">
               <Link
                 to="/login"
-                className="bg-blue-400 text-white py-2 px-6 rounded-md mr-4 hover:bg-blue-300/90 transition duration-300"
+                className="bg-teal-400 text-white py-2 px-6 rounded-md mr-4 hover:bg-teal-500/90 transition duration-300"
               >
                 PLAY
               </Link>
               <Link
                 to="/signup"
-                className="bg-blue-400 text-white py-2 px-6 rounded-md hover:bg-blue-300/90 transition duration-300"
+                className="bg-teal-400 text-white py-2 px-6 rounded-md hover:bg-teal-500/90 transition duration-300"
               >
                 BUY NOW
               </Link>

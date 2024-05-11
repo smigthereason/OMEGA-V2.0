@@ -1,27 +1,29 @@
 export const PRODUCTS = [
-  { name: "Drag And Drop", link: "#" },
-  { name: "Visual Studio X", link: "#" },
-  { name: "Easy Content", link: "#" },
+  { name: "Game Bundles", link: "#" },
+  { name: "DLCs", link: "#" },
+  { name: "Omega Merchandise", link: "#" },
+  { name: "Omega Gift Cards", link: "#" },
 ];
 export const RESOURCES = [
-  { name: "Industries and tools", link: "#" },
-  { name: "Use cases", link: "#" },
-  { name: "Blog", link: "#" },
-  { name: "Online evenet", link: "#" },
-  { name: "Nostrud exercitation", link: "#" },
+  { name: "Game Guides", link: "#" },
+  { name: "Game Demos", link: "#" },
+  { name: "Developer Documentation", link: "#" },
+  { name: "Online events", link: "#" },
+  { name: "System Requirements", link: "#" },
 ];
 export const COMPANY = [
-  { name: "Diversity & inclusion", link: "#" },
-  { name: "About us", link: "#" },
-  { name: "Press", link: "#" },
-  { name: "Customer Stories", link: "#" },
-  { name: "Online communities", link: "#" },
+  { name: "About Us", link: "#" },
+  { name: "Partnerships", link: "#" },
+  { name: "Team/Staff Profiles", link: "#" },
+  { name: "Privacy Policy", link: "#" },
+  { name: "Terms of Service", link: "#" },
 ];
 export const SUPPORT = [
-  { name: "Documentation", link: "#" },
-  { name: "Tutorials & guides", link: "#" },
-  { name: "Webinars", link: "#" },
-  { name: "Open-source", link: "#" },
+  { name: "FAQs", link: "#" },
+  { name: "Account Managements", link: "#" },
+  { name: "Billing and Payments", link: "#" },
+  { name: "Community Guidelines", link: "#" },
+  { name: "Security Information", link: "#" },
 ];
 
 export const Icons = [

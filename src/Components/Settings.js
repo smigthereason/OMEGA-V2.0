@@ -1,12 +1,13 @@
 import React from "react";
 // import avatar from "../Assets/avatar1.png";
+// import "./Settings/Settings.css" 
 
 const Settings = () => {
   return (
-    <div className="container light-style flex-grow-1 container-p-y">
-      <h4 className="font-weight-bold py-3 mb-4">Account settings</h4>
+    <div className="container-bod flex-grow-1 text-white bg-black container-p-y">
+      <h4 className="font-weight-bold py-3 mb-4 uppercase">Account settings</h4>
       <div className="card overflow-hidden">
-        <div className="row no-gutters row-bordered row-border-light">
+        <div className="row no-gutters row-bordered row-border-light container  flex items-center justify-between">
           <div className="col-md-3 pt-0">
             <div className="list-group list-group-flush account-settings-links">
               <a className="list-group-item list-group-item-action active" data-toggle="list" href="#account-general">

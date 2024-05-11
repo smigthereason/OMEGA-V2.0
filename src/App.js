@@ -81,24 +81,11 @@ const App = () => {
     }
   };
 
-//   return (
-//     <div class="">
-//   <div class="w-full overflow-hidden">  <div class="flex overflow-x-auto space-x-4">
 
-//     {Array.from({ length: 10 }).map((_, index) => (
-//       <div
-//         key={index}
-//         class="w-64 h-64 bg-red-500 rounded-lg flex-shrink-0"
-//       ></div>
-//     ))}
-//       </div>
-//   </div>
-// </div>
-
-//   )
 
   return (
     <div className="App">
+      {/* <Nav /> */}
       <Navbar onMenuToggle={toggleMenu} />
       <div className="flex">
       <Menu isOpen={isMenuOpen} onClose={toggleMenu} />
@@ -126,10 +113,10 @@ const App = () => {
           <Discount />
         </section>
 
-         {/*<div>
+         <div>
           <div className="h-screen"></div>
           <Footer />
-        </div> */}
+        </div>
 
         {/* <Sponsors /> */}
       </div>

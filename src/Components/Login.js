@@ -20,7 +20,7 @@ const Login = () => {
               to="/"
               className="flex items-center text-white ml-28 px-10 py-8 "
             >
-              <img src={Logo} alt="Logo" className="h-14 w-auto" />
+              <img src={Logo} alt="Logo" className="h-14 w-auto transition ease-in-out hover:-translate-y-1 hover:scale-110  duration-300" />
             </Link>{" "}
             <form>
               <div className="mb-4">
