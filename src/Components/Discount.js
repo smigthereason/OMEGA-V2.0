@@ -123,7 +123,7 @@ const Discount = () => {
   };
 
   return (
-    <div class="overflow-x-auto">
+    <div class="overflow-x-auto w-screen">
       <div class="flex gap-4 p-4">
         {games.map((game) => (
           <div
