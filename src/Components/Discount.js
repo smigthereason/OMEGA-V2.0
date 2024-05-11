@@ -8,6 +8,9 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
+const API_KEY= process.env.REACT_APP_RAWG_API_KEY
+
+
 
 const getPlatformIcon = (platformName) => {
   switch (platformName.toLowerCase()) {
@@ -72,7 +75,7 @@ const Discount = () => {
     const fetchGames = async () => {
       try {
         const response = await fetch(
-          "https://api.rawg.io/api/games?key=6e2c3d10b67342d8a5dac993f10b5393&dates=2016-01-01,2022-12-31&ordering=-added&page_size=40&genres=sports,action,arcade,racing"
+          "https://api.rawg.io/api/games?key=API_KEY&dates=2016-01-01,2022-12-31&ordering=-added&page_size=40&genres=sports,action,arcade,racing"
         );
         if (!response.ok) {
           throw new Error("Network response was not ok.");

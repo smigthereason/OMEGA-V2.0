@@ -5,6 +5,8 @@ import { BsNintendoSwitch, BsAndroid2 } from "react-icons/bs";
 import { FaStar, FaStarHalfAlt } from "react-icons/fa";
 import TextWithMarquee from "./TextWithMarquee";
 
+const API_KEY= process.env.REACT_APP_RAWG_API_KEY
+
 const GameList = ({ filteredGames }) => {
   console.log("Games received in GameList:", filteredGames);
   const [games, setGames] = useState([]);
@@ -13,7 +15,7 @@ const GameList = ({ filteredGames }) => {
     const fetchGames = async () => {
       try {
         const response = await fetch(
-          "https://api.rawg.io/api/games?key=6e2c3d10b67342d8a5dac993f10b5393&dates=2021-01-01,2023-12-31&ordering=-added&page_size=200"
+          "https://api.rawg.io/api/games?key=API_KEY&dates=2021-01-01,2023-12-31&ordering=-added&page_size=200"
         );
         if (!response.ok) {
           throw new Error("Network response was not ok.");

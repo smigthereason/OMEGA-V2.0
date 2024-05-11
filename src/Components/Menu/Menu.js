@@ -25,13 +25,7 @@ const Menu = ({isOpen}) => {
           isOpen ? "w-72" : "w-16"
         } duration-500 text-gray-100 px-4`}
       >
-        {/* <div className="py-3 flex justify-end">
-          <HiMenuAlt3
-            size={26}
-            className="cursor-pointer"
-            onClick={() => setOpen(!open)}
-          />
-        </div> */}
+        
         <div className="mt-4 flex flex-col gap-4 relative">
           {menus?.map((menu, i) => (
             <Link
@@ -63,9 +57,7 @@ const Menu = ({isOpen}) => {
           ))}
         </div>
       </div>
-      {/* <div className="m-3 text-xl text-gray-900 font-semibold">
-        REACT TAILWIND
-      </div> */}
+      
     </section>
   );
 };

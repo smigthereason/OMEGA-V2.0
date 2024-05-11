@@ -6,7 +6,7 @@ const Settings = () => {
   return (
     <div className="container mx-auto py-8 h-screen">
       <div className="flex w-auto h-screen">
-        {/* Modify the div to span across the width */}
+        
         <div className="bg-black rounded-lg p-6 w-full">
           <h4 className="font-bold text-lg mb-4 uppercase text-white">
             Account settings
@@ -93,12 +93,7 @@ const Settings = () => {
                     </a>
                   </li>
                   <li className="mb-2">
-                    {/* <a
-                      href="#account-change-password"
-                      className="block text-sm text-gray-300 hover:text-white"
-                    >
-                      Change password
-                    </a> */}
+      
                     <Link
                       to="/changePassword"
                       className="block text-sm text-gray-300 hover:text-white"
