@@ -4,7 +4,7 @@
 // import { HiMenuAlt1 } from "react-icons/hi";
 // import Menu from "./Menu/Menu";
 
-// const Navbar = ({ onMenuToggle }) => {
+// const Navbar = ({ onMenuToggle, onAudioControl }) => {
 //   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
 //   const toggleMenu = () => {
@@ -21,20 +21,29 @@
 //           />
 //         </div>
 
-//         <Link to="/" className="flex items-center text-white ml-60 px-2 py-2">
-//           <img src={Logo} alt="Logo" className="h-20 w-auto transition ease-in-out hover:-translate-y-1 hover:scale-110  duration-300" />
+//         <Link
+//           to="/"
+//           className="flex items-center text-white ml-60 px-2 py-2"
+          
+//         >
+//           <img
+//             src={Logo}
+//             alt="Logo"
+//             className="h-20 w-auto transition ease-in-out hover:-translate-y-1 hover:scale-110 duration-300"
+//           />
 //         </Link>
 
 //         <div className="flex items-center">
 //           <Link
 //             to="/login"
-//             className="text-white py-2 px-6 rounded-md mr-4 transition ease-in-out hover:-translate-y-1 hover:scale-110  duration-300"
+//             className="text-white py-2 px-6 rounded-md mr-4 transition ease-in-out hover:-translate-y-1 hover:scale-110 duration-300"
+            
 //           >
 //             Login
 //           </Link>
 //           <Link
 //             to="/signup"
-//             className="text-white py-2 px-6 rounded-md  transition ease-in-out  hover:-translate-y-1 hover:scale-110  duration-300"
+//             className="text-white py-2 px-6 rounded-md transition ease-in-out hover:-translate-y-1 hover:scale-110 duration-300"
 //           >
 //             Sign Up
 //           </Link>
@@ -49,31 +58,35 @@
 
 import React, { useState } from "react";
 import Logo from "../Assets/logo-no-background.png";
+import LoginAudio from "../Assets/Metro Boomin, NAV, A Boogie wit da Hoodie, Swae Lee - Calling.mp3"; // Import the audio file
 import { Link } from "react-router-dom";
 import { HiMenuAlt1 } from "react-icons/hi";
 import Menu from "./Menu/Menu";
 
-// Import the audio file
-import LoginAudio from "../Assets/Metro Boomin, NAV, A Boogie wit da Hoodie, Swae Lee - Calling.mp3";
-
 const Navbar = ({ onMenuToggle }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [audio] = useState(new Audio(LoginAudio)); // Create an audio object with the audio file
+  const [audio] = useState(new Audio(LoginAudio)); // Create an audio object in state
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
-  const handleLoginClick = () => {
-    // Play the audio file when Log in is clicked
-    audio.play();
-  };
 
-  const handleHomeClick = () => {
-    // Stop the audio file when going back to the home page
+console.log(audio); // Add this line to check the audio object
+
+const handleLoginClick = () => {
+  console.log("Login clicked");
+  audio.play();
+};
+
+const handleLogoClick = () => {
+  console.log("Logo clicked");
+  if (!audio.paused) {
     audio.pause();
-    audio.currentTime = 0; // Reset audio to start
-  };
+    audio.currentTime = 0;
+  }
+};
+  
 
   return (
     <nav className="bg-black w-auto">
@@ -85,15 +98,23 @@ const Navbar = ({ onMenuToggle }) => {
           />
         </div>
 
-        <Link to="/" className="flex items-center text-white ml-60 px-2 py-2" onClick={handleHomeClick}>
-          <img src={Logo} alt="Logo" className="h-20 w-auto transition ease-in-out hover:-translate-y-1 hover:scale-110 duration-300" />
+        <Link
+          to="/"
+          className="flex items-center text-white ml-60 px-2 py-2"
+          onClick={handleLogoClick} // Add onClick event to stop audio when logo is clicked
+        >
+          <img
+            src={Logo}
+            alt="Logo"
+            className="h-20 w-auto transition ease-in-out hover:-translate-y-1 hover:scale-110 duration-300"
+          />
         </Link>
 
         <div className="flex items-center">
           <Link
             to="/login"
             className="text-white py-2 px-6 rounded-md mr-4 transition ease-in-out hover:-translate-y-1 hover:scale-110 duration-300"
-            onClick={handleLoginClick} // Add onClick to handle playing the audio
+            onClick={handleLoginClick} // Add onClick event to play audio when Log in is clicked
           >
             Login
           </Link>

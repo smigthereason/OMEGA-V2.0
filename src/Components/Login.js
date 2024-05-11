@@ -1,9 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import Logo from "../Assets/logo-no-background.png";
 import VideoBackground from "../Assets/Spider.mp4";
 import { Link } from 'react-router-dom';
+import LoginAudio from '../Assets/Metro Boomin, NAV, A Boogie wit da Hoodie, Swae Lee - Calling.mp3'
 
 const Login = () => {
+  const [audio] = useState(new Audio(LoginAudio)); // Create an audio object in state
+
+  
+  const handleLogoClick = () => {
+    audio.pause(); // Pause the audio when the logo is clicked
+    audio.currentTime = 0; // Reset audio to start
+  };
+
   return (
     <>
       <section className="video-section">
@@ -19,6 +28,7 @@ const Login = () => {
             <Link
               to="/"
               className="flex items-center text-white ml-28 px-10 py-8 "
+              onClick={handleLogoClick} 
             >
               <img src={Logo} alt="Logo" className="h-14 w-auto transition ease-in-out hover:-translate-y-1 hover:scale-110  duration-300" />
             </Link>{" "}
