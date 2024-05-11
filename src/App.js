@@ -12,28 +12,13 @@ import Footer from "./Components/Footer";
 
 const App = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [filteredGames, setFilteredGames] = useState([]);
+  const [filteredGames] = useState([]);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
-  // Function to handle search
-  const handleSearch = async (searchQuery) => {
-    try {
-      const response = await fetch(
-        `https://api.rawg.io/api/games?key=6e2c3d10b67342d8a5dac993f10b5393&search=${searchQuery}`
-      );
-      if (!response.ok) {
-        throw new Error("Failed to fetch games");
-      }
-      const data = await response.json();
-      setFilteredGames(data.results || []);
-    } catch (error) {
-      console.error("Error searching games:", error);
-    }
-  };
-
+  
   return (
     <div className="App">
       {/* <Nav /> */}
@@ -80,7 +65,7 @@ const App = () => {
           
 
           <div>
-            <div className="h-screen"></div>
+            <div className=""></div>
             <Footer />
           </div>
         </div>

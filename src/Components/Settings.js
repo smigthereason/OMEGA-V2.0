@@ -1,89 +1,252 @@
+// import React from "react";
+// import "./Settings/Settings.css";
+
+// const Settings = () => {
+//   return (
+//     <div className="container mx-auto py-8">
+//       <div className="flex  w-auto">
+
+//       <div className="bg-gray-900 rounded-lg p-6 " >
+//       <h4 className="font-bold text-lg mb-4 uppercase">Account settings</h4>
+//         <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+//           <div className="col-span-1 md:col-span-3">
+//             <div className="bg-gray-800 rounded-lg p-4">
+//               <div className="flex items-center mb-4">
+//                 {/* <img src={avatar} alt="Avatar" className="w-16 h-16 rounded-full mr-4" /> */}
+//                 <div>
+//                   <label className="text-blue-500 cursor-pointer">
+//                     Upload new photo
+//                     <input type="file" className="hidden" />
+//                   </label>
+//                   <button type="button" className="btn-reset text-sm ml-4 text-gray-400 hover:text-gray-500">
+//                     Reset
+//                   </button>
+//                   <p className="text-xs text-gray-400 mt-1">Allowed JPG, GIF or PNG. Max size of 5MB</p>
+//                 </div>
+//               </div>
+//               <hr className="border-gray-700" />
+//               <div className="mt-4">
+//                 <div className="mb-4">
+//                   <label className="block text-gray-400 mb-1">Username</label>
+//                   <input type="text" className="input-field" value="nmaxwell" />
+//                 </div>
+//                 <div className="mb-4">
+//                   <label className="block text-gray-400 mb-1">Name</label>
+//                   <input type="text" className="input-field" value="Nelle Maxwell" />
+//                 </div>
+//                 <div className="mb-4">
+//                   <label className="block text-gray-400 mb-1">E-mail</label>
+//                   <input type="text" className="input-field" value="nmaxwell@mail.com" />
+//                   <div className="alert-warning mt-3 text-xs">
+//                     Your email is not confirmed. Please check your inbox.
+//                   </div>
+//                 </div>
+//                 <div className="mb-4">
+//                   <label className="block text-gray-400 mb-1">Company</label>
+//                   <input type="text" className="input-field" value="Company Ltd." />
+//                 </div>
+//               </div>
+//             </div>
+//           </div>
+//           <div className="col-span-1">
+//             <div className="bg-gray-800 rounded-lg p-4">
+//               <ul className="list-none">
+//                 <li className="mb-2">
+//                   <a href="#account-general" className="block text-sm text-gray-300 hover:text-white">
+//                     General
+//                   </a>
+//                 </li>
+//                 <li className="mb-2">
+//                   <a href="#account-change-password" className="block text-sm text-gray-300 hover:text-white">
+//                     Change password
+//                   </a>
+//                 </li>
+//                 <li className="mb-2">
+//                   <a href="#account-info" className="block text-sm text-gray-300 hover:text-white">
+//                     Info
+//                   </a>
+//                 </li>
+//                 <li className="mb-2">
+//                   <a href="#account-social-links" className="block text-sm text-gray-300 hover:text-white">
+//                     Social links
+//                   </a>
+//                 </li>
+//                 <li className="mb-2">
+//                   <a href="#account-connections" className="block text-sm text-gray-300 hover:text-white">
+//                     Connections
+//                   </a>
+//                 </li>
+//                 <li className="mb-2">
+//                   <a href="#account-notifications" className="block text-sm text-gray-300 hover:text-white">
+//                     Notifications
+//                   </a>
+//                 </li>
+//               </ul>
+//             </div>
+//           </div>
+//           <div className="text-right mt-4">
+//         <button type="button" className="btn-primary">
+//           Save changes
+//         </button>
+//         <button type="button" className="btn-default ml-2">
+//           Cancel
+//         </button>
+//       </div>
+//         </div>
+//       </div>
+
+//       </div>
+//     </div>
+//   );
+// };
+
+// export default Settings;
 import React from "react";
-// import avatar from "../Assets/avatar1.png";
-// import "./Settings/Settings.css" 
+import "./Settings/Settings.css";
 
 const Settings = () => {
   return (
-    <div className="container-bod flex-grow-1 text-white bg-black container-p-y">
-      <h4 className="font-weight-bold py-3 mb-4 uppercase">Account settings</h4>
-      <div className="card overflow-hidden">
-        <div className="row no-gutters row-bordered row-border-light container  flex items-center justify-between">
-          <div className="col-md-3 pt-0 gap-2">
-            <div className="list-group list-group-flush account-settings-links">
-              <a className="list-group-item list-group-item-action active" data-toggle="list" href="#account-general">
-                General
-              </a>
-              <a className="list-group-item list-group-item-action" data-toggle="list" href="#account-change-password">
-                Change password
-              </a>
-              <a className="list-group-item list-group-item-action" data-toggle="list" href="#account-info">
-                Info
-              </a>
-              <a className="list-group-item list-group-item-action" data-toggle="list" href="#account-social-links">
-                Social links
-              </a>
-              <a className="list-group-item list-group-item-action" data-toggle="list" href="#account-connections">
-                Connections
-              </a>
-              <a className="list-group-item list-group-item-action" data-toggle="list" href="#account-notifications">
-                Notifications
-              </a>
-            </div>
-          </div>
-          <div className="col-md-9">
-            <div className="tab-content">
-              <div className="tab-pane fade active show" id="account-general">
-                <div className="card-body media align-items-center">
-                  {/* <img src={avatar} alt="Avatar" className="d-block ui-w-80" /> */}
-                  <div className="media-body ml-4">
-                    <label className="btn btn-outline-primary">
+    <div className="container mx-auto py-8 h-screen">
+      <div className="flex w-auto h-screen">
+        {/* Modify the div to span across the width */}
+        <div className="bg-black rounded-lg p-6 w-full">
+          <h4 className="font-bold text-lg mb-4 uppercase text-white">Account settings</h4>
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+            <div className="col-span-1 md:col-span-3">
+              <div className="bg-gray-700 rounded-lg p-4">
+                <div className="flex items-center mb-4">
+                  {/* <img src={avatar} alt="Avatar" className="w-16 h-16 rounded-full mr-4" /> */}
+                  <div>
+                    <label className="text-blue-500 cursor-pointer">
                       Upload new photo
-                      <input type="file" className="account-settings-fileinput" />
-                    </label>{" "}
-                    &nbsp;
-                    <button type="button" className="btn btn-default md-btn-flat">
+                      <input type="file" className="hidden" />
+                    </label>
+                    <button
+                      type="button"
+                      className="btn-reset text-sm ml-4 text-gray-400 hover:text-gray-500"
+                    >
                       Reset
                     </button>
-                    <div className="text-light small mt-1">Allowed JPG, GIF or PNG. Max size of 800K</div>
+                    <p className="text-xs text-gray-400 mt-1">
+                      Allowed JPG, GIF or PNG. Max size of 5MB
+                    </p>
                   </div>
                 </div>
-                <hr className="border-light m-0" />
-                <div className="card-body">
-                  <div className="form-group">
-                    <label className="form-label">Username</label>
-                    <input type="text" className="form-control mb-1" value="nmaxwell" />
+                <hr className="border-gray-700" />
+                <div className="mt-4">
+                  <div className="mb-4">
+                    <label className="block text-gray-400 mb-1">Username</label>
+                    <input
+                      type="text"
+                      className="input-field rounded-lg"
+                      value=""
+                      required
+                      
+                    />
                   </div>
-                  <div className="form-group">
-                    <label className="form-label">Name</label>
-                    <input type="text" className="form-control" value="Nelle Maxwell" />
+                  <div className="mb-4">
+                    <label className="block text-gray-400 mb-1">Name</label>
+                    <input
+                      type="text"
+                      className="input-field rounded-lg"
+                      value=""
+                      required
+                    />
                   </div>
-                  <div className="form-group">
-                    <label className="form-label">E-mail</label>
-                    <input type="text" className="form-control mb-1" value="nmaxwell@mail.com" />
-                    <div className="alert alert-warning mt-3">
-                      Your email is not confirmed. Please check your inbox.<br />
-                      {/* <a href="javascript:void(0)">Resend confirmation</a> */}
+                  <div className="mb-4">
+                    <label className="block text-gray-400 mb-1">E-mail</label>
+                    <input
+                      type="text"
+                      className="input-field rounded-lg"
+                      value=""
+                      placeholder="...@gmail.com"
+                      required
+                    />
+                    <div className="alert-warning mt-3 text-xs">
+                      Your email is not confirmed. Please check your inbox.
                     </div>
                   </div>
-                  <div className="form-group">
-                    <label className="form-label">Company</label>
-                    <input type="text" className="form-control" value="Company Ltd." />
+                  <div className="mb-4">
+                    <label className="block text-gray-400 mb-1">OTP</label>
+                    <input
+                      type="text"
+                      className="input-field rounded-lg"
+                      value=""
+                      placeholder="Enter OTP"
+                      required
+                    />
+                    <div className="alert-warning mt-3 text-xs">
+                      Please enter OTP to confirm account.
+                    </div>
                   </div>
                 </div>
               </div>
-              {/* Other tab-pane content goes here */}
+            </div>
+            <div className="col-span-1">
+              <div className="bg-gray-800 rounded-lg p-4">
+                <ul className="list-none">
+                  <li className="mb-2">
+                    <a
+                      href="#account-general"
+                      className="block text-sm text-gray-300 hover:text-white"
+                    >
+                      General
+                    </a>
+                  </li>
+                  <li className="mb-2">
+                    <a
+                      href="#account-change-password"
+                      className="block text-sm text-gray-300 hover:text-white"
+                    >
+                      Change password
+                    </a>
+                  </li>
+                  <li className="mb-2">
+                    <a
+                      href="#account-info"
+                      className="block text-sm text-gray-300 hover:text-white"
+                    >
+                      Info
+                    </a>
+                  </li>
+                  <li className="mb-2">
+                    <a
+                      href="#account-social-links"
+                      className="block text-sm text-gray-300 hover:text-white"
+                    >
+                      Social links
+                    </a>
+                  </li>
+                  <li className="mb-2">
+                    <a
+                      href="#account-connections"
+                      className="block text-sm text-gray-300 hover:text-white"
+                    >
+                      Connections
+                    </a>
+                  </li>
+                  <li className="mb-2">
+                    <a
+                      href="#account-notifications"
+                      className="block text-sm text-gray-300 hover:text-white"
+                    >
+                      Notifications
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div className="text-right mt-4 w-full">
+              <button type="button" className="btn-primary">
+                Save changes
+              </button>
+              <button type="button" className="btn-default ml-2">
+                Cancel
+              </button>
             </div>
           </div>
         </div>
-      </div>
-      <div className="text-right mt-3">
-        <button type="button" className="btn btn-primary">
-          Save changes
-        </button>
-        &nbsp;
-        <button type="button" className="btn btn-default">
-          Cancel
-        </button>
       </div>
     </div>
   );
