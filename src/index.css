@@ -81,3 +81,10 @@ code {
   .footer-content {
     width: 100%;}
 }
+
+.vertical-text {
+  writing-mode: vertical-rl; 
+  font-size: xx-large;
+  font-style: italic;
+  
+}

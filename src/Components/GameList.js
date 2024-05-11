@@ -78,7 +78,7 @@ const GameList = ({ filteredGames }) => {
   };
 
   return (
-    // <div className="grid grid-cols-1 ps-4 pr-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+    
     <div className="grid grid-cols-4 gap-4">
       {games.map((game) => (
         <a
@@ -105,6 +105,7 @@ const GameList = ({ filteredGames }) => {
                       <span key={platform.platform.id}>{platformIcon}</span>
                     );
                   }
+                  return null;
                 })}
               </div>
               <div className="my-4">
