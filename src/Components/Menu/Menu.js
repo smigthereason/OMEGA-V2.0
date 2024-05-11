@@ -10,11 +10,11 @@ import { Link } from "react-router-dom";
 const Menu = ({isOpen}) => {
   const menus = [
     { name: "dashboard", link: "/", icon: MdOutlineDashboard },
-    { name: "user", link: "/", icon: AiOutlineUser },
+    { name: "user", link: "/User", icon: AiOutlineUser },
     // { name: "messages", link: "/", icon: FiMessageSquare },
     // { name: "analytics", link: "/", icon: TbReportAnalytics, margin: true },
     { name: "Search", link: "/search", icon: FiSearch },
-    { name: "Cart", link: "/", icon: FiShoppingCart },
+    { name: "Cart", link: "/cart", icon: FiShoppingCart },
     // { name: "Saved", link: "/", icon: AiOutlineHeart, margin: true },
     { name: "Settings", link: "/settings", icon: RiSettings4Line },
   ];

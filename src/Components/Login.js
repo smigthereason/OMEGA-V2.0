@@ -55,7 +55,7 @@ const Login = () => {
               </div>
               <div className="flex items-center justify-between text-center">
                 <button
-                  className="ml-40 hover:bg-gray-300 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                  className="ml-40  text-white font-bold py-2 px-4 transition ease-in-out hover:-translate-y-1 hover:scale-110  duration-300 focus:outline-none focus:shadow-outline"
                   type="submit"
                 >
                   Log In

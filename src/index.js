@@ -8,6 +8,8 @@ import SignupPage from './Components/signup';
 import Settings from "./Components/Settings"
 import Search from './Components/Search';
 import ChangePassword from './Components/Settings/ChangePassword';
+import User from './Components/User';
+import Cart from './Components/Cart';
 
 const router = createBrowserRouter([
   {
@@ -26,7 +28,14 @@ const router = createBrowserRouter([
     path: "/changePassword",
     element: <ChangePassword />
   },
- 
+  {
+    path: "/user",
+    element: <User />
+  },
+  {
+    path: "/cart",
+    element: <Cart />
+  },
   {
     path: "/login",
     element: <Login />

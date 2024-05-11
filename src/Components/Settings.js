@@ -6,7 +6,6 @@ const Settings = () => {
   return (
     <div className="container mx-auto py-8 h-screen">
       <div className="flex w-auto h-screen">
-        
         <div className="bg-black rounded-lg p-6 w-full">
           <h4 className="font-bold text-lg mb-4 uppercase text-white">
             Account settings
@@ -93,12 +92,11 @@ const Settings = () => {
                     </a>
                   </li>
                   <li className="mb-2">
-      
                     <Link
                       to="/changePassword"
                       className="block text-sm text-gray-300 hover:text-white"
                     >
-                    Change Password
+                      Change Password
                     </Link>
                   </li>
                   <li className="mb-2">
@@ -144,12 +142,14 @@ const Settings = () => {
               >
                 Save
               </button>
-              <button
-                type="button"
-                className="btn-default ml-2 text-white transition ease-in-out hover:-translate-y-1 hover:scale-110  duration-300"
-              >
-                Cancel
-              </button>
+              <Link to="/">
+                <button
+                  type="button"
+                  className="btn-default ml-2 text-white transition ease-in-out hover:-translate-y-1 hover:scale-110  duration-300"
+                >
+                  Cancel
+                </button>
+              </Link>
             </div>
           </div>
         </div>

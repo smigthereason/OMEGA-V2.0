@@ -7,6 +7,10 @@ import { FaStar, FaStarHalfAlt } from "react-icons/fa";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { IoIosArrowDropleft } from "react-icons/io";
+
+import { IoIosArrowDropright } from "react-icons/io";
+
 
 const API_KEY= process.env.REACT_APP_RAWG_API_KEY
 
@@ -150,15 +154,15 @@ const Discount = () => {
                 <div className="absolute top-0 left-0 right-0 bottom-0 flex items-center justify-between">
                   <button
                     onClick={() => handleSlide("prev")}
-                    className="bg-gray-800 text-white py-2 px-4 rounded-l-lg"
+                    className=" text-white py-2 px-4 "
                   >
-                    Prev
+                   <IoIosArrowDropleft  size={30}/>
                   </button>
                   <button
                     onClick={() => handleSlide("next")}
-                    className="bg-gray-800 text-white py-2 px-4 rounded-r-lg"
+                    className=" text-white py-2 px-4 "
                   >
-                    Next
+                   <IoIosArrowDropright size={30}/>
                   </button>
                 </div>
               )}
