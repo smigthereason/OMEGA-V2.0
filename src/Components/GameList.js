@@ -212,32 +212,42 @@ const GameList = ({ filteredGames }) => {
   return (
     <div className="grid grid-cols-4 gap-4">
       {games.map((game) => (
-        <a key={game.id} className="game-card" href="/login">
+        <a
+          key={game.id}
+          className="bg-transparent bg-opacity-60 backdrop-blur-lg shadow-lg rounded-lg overflow-hidden text-white border-2 border-gray-500"
+          href="/login"
+        >
           <img
             src={game.background_image}
             alt={game.name}
             className="w-full h-48 object-cover object-center px-4 py-4 rounded-xl"
-            loading="lazy"
           />
-          <div className="p-4">
-            <TextWithMarquee className="text-xl font-semibold mb-2">
-              {game.name}
-            </TextWithMarquee>
-            <div className="flex items-center justify-center mb-2 gap-3">
-              {game.platforms.map((platform, index) => {
-                const platformIcon = getPlatformIcon(platform.platform.name);
-                return platformIcon && (
-                  <span key={index}>{platformIcon}</span>
-                );
-              })}
-            </div>
-            <div className="my-4">
-              <p className="text-white">Genres:</p>
-              <TextWithMarquee>
-                {game.genres.map((genre) => genre.name).join(", ")}
+          <div className="p-4 flex flex-col justify-between items-center">
+            <div>
+              {/* <h2 className="text-xl font-semibold mb-2">{game.name}</h2> */}
+              <TextWithMarquee className="text-xl font-semibold mb-2">
+                {game.name}
               </TextWithMarquee>
+              <div className="flex items-center justify-center mb-2 gap-3">
+                {game.platforms.map((platform) => {
+                  const platformIcon = getPlatformIcon(platform.platform.name);
+                  if (platformIcon) {
+                    return (
+                      <span key={platform.platform.id}>{platformIcon}</span>
+                    );
+                  }
+                  return null;
+                })}
+              </div>
+              <div className="my-4">
+                <p className="text-white">Genres:</p>
+                <TextWithMarquee>
+                  {game.genres.map((genre) => genre.name).join(", ")}
+                </TextWithMarquee>
+                {/* <p className={`marquee-text ${isMarquee ? 'animate-marquee whitespace-nowrap' : ''}`}>{game.genres.map((genre) => genre.name).join(", ")}</p> */}
+              </div>
             </div>
-            <p className="text-center text-white">
+            <p className="text-center text-white mb-2 ">
               {renderRatingStars(game.rating)}
             </p>
           </div>
@@ -246,5 +256,6 @@ const GameList = ({ filteredGames }) => {
     </div>
   );
 };
+
 
 export default GameList;
