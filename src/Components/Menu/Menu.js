@@ -1,21 +1,16 @@
-import React, { useState } from "react";
-import { HiMenuAlt3 } from "react-icons/hi";
+import React from "react";
 import { MdOutlineDashboard } from "react-icons/md";
 import { RiSettings4Line } from "react-icons/ri";
-import { TbReportAnalytics } from "react-icons/tb";
-import { AiOutlineUser, AiOutlineHeart } from "react-icons/ai";
-import { FiMessageSquare, FiSearch, FiShoppingCart } from "react-icons/fi";
+import { AiOutlineUser } from "react-icons/ai";
+import { FiSearch, FiShoppingCart } from "react-icons/fi";
 import { Link } from "react-router-dom";
 
 const Menu = ({isOpen}) => {
   const menus = [
     { name: "dashboard", link: "/", icon: MdOutlineDashboard },
     { name: "user", link: "/User", icon: AiOutlineUser },
-    // { name: "messages", link: "/", icon: FiMessageSquare },
-    // { name: "analytics", link: "/", icon: TbReportAnalytics, margin: true },
     { name: "Search", link: "/search", icon: FiSearch },
     { name: "Cart", link: "/cart", icon: FiShoppingCart },
-    // { name: "Saved", link: "/", icon: AiOutlineHeart, margin: true },
     { name: "Settings", link: "/settings", icon: RiSettings4Line },
   ];
   return (

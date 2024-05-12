@@ -2,12 +2,16 @@ import React from "react";
 import "./Settings/Settings.css";
 import { Link } from "react-router-dom";
 
+
 const Settings = () => {
   return (
     <div className="container mx-auto py-8 h-screen">
       <div className="flex w-auto h-screen">
         <div className="bg-black rounded-lg p-6 w-full">
+        
+        
           <h4 className="font-bold text-lg mb-4 uppercase text-white">
+
             Account settings
           </h4>
           <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
@@ -33,11 +37,11 @@ const Settings = () => {
                 </div>
                 <hr className="border-gray-700" />
                 <div className="mt-4">
-                  <div className="mb-4">
+                  <div className="mb-4 text-black">
                     <label className="block text-gray-400 mb-1">Username</label>
                     <input
                       type="text"
-                      className="input-field rounded-lg text-black"
+                      className="input-field rounded-lg "
                       value=""
                       required
                     />

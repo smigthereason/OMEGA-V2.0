@@ -1,70 +1,79 @@
-# Getting Started with Create React App
+# OMEGA
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Single Page Application Project
 
-## Available Scripts
+OMEGA is a single page application where you can buy and play your favorite games at the comfort of your preferred device.
 
-In the project directory, you can run:
+## Getting Started
 
-### `npm start`
+To get started with this project, follow these steps:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+1. Clone this repository to your local machine.
+2. Run npm install to install the required dependencies.
+3. Get a RAWG API key at https://rawg.io/apidocs. NB:Create an account first.
+4. Add the API key to _.env_ .
+5. Run npm run dev to start the web server.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Live Link
 
-### `npm test`
+[Live Link](https://omega-v2-0.vercel.app/)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Technologies Used
 
-### `npm run build`
+- HTML
+- Tailwind CSS
+- JavaScript
+- React
+- Vercel
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Requirements needed
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+To contribute or work on this project, you need:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- Basic programming knowledge of JavaScript, HTML, and CSS.
+- Visual Studio Code or any other code editor of your choice.
+- Vercel for deployment purposes
 
-### `npm run eject`
+## Minimum Viable Product
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+A functional single page application embracing the ideal Omega Community.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Key Features
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- Interactive website interface that clients can navigate with ease.
+- Seamless webpage design that responds to different displays.
+- Comprehensive library showcasing available games across different genres.
+- Offer discounts to Omega members for game purchases and additional
+  information on latest game releases.
+- A shopping cart feature for games selected.
+- Search function for easier browsing on the interface.
+- Api integration to enhance functionality of the platform.
+- Sponsor section to recognize partners of Omega.
+- A contact section for the Omega team with addresses and social links.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Objectives
 
-## Learn More
+- Create a user-friendly framework that embraces ideals of Omega.
+- Implement and Integrate Api for functionality.
+- Feature a library of game options and facilitate in-app purchases as well as
+  offer discounts to members subscribed to Omega.
+- Enable various platforms (i.e. Pc, Xbox, PlayStation) to interact with the
+  webpage and seamless transitions between them.
+- Recognize Omega’s sponsors and avail various payment options fro purchase
+  made.
+- Provide Contact Options: Where visitors can easily get in touch with Omega
+  help desk for inquiries and customer care services.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## API USED
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+[RAWG.io](https://api.rawg.io/api/)
 
-### Code Splitting
+## Authors
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+[Victor Maina](https://github.com/smigthereason)
 
-### Analyzing the Bundle Size
+## Copyright and License Information
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+This project is licensed under the MIT License.
 
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+© 2024 OMEGA

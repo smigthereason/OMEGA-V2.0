@@ -3,6 +3,8 @@ import { FaXbox, FaWindows, FaApple, FaLinux } from "react-icons/fa";
 import { SiPlaystation5, SiPlaystation4 } from "react-icons/si";
 import { BsNintendoSwitch, BsAndroid2 } from "react-icons/bs";
 import { FaStar, FaStarHalfAlt } from "react-icons/fa";
+import { BsSearch } from "react-icons/bs";
+
 
 
 
@@ -139,11 +141,12 @@ const SearchPage = () => {
   };
 
   return (
-    <div className="container bg-black   ">
+    <div className="flex flex-col gap-4 bg-black">
+    <div className="container mt-4 ml-6 mr-4">
       <div className="flex justify-center mb-4">
         <input
           type="text"
-          className="border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring focus:border-blue-300 w-96"
+          className="border border-gray-300 rounded-full px-4 py-2 focus:outline-none focus:ring focus:border-blue-300 w-96 mt-2 mb-2"
           placeholder="Search for games..."
           value={searchQuery}
           onChange={(e) => {
@@ -152,23 +155,22 @@ const SearchPage = () => {
           }}
         />
         <button
-          className="ml-4 px-6 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 focus:outline-none"
+          className="ml-4 px-6 py-2  text-white rounded-full hover:bg-blue-600 focus:outline-none"
           onClick={() => {
             handleSearch();
             setDefaultResults([]);
           }}
         >
-          Search
+          <BsSearch size={24} />
         </button>
 
         <div className="flex justify-center mb-4">
-        <label className="mr-2 ">Sort Search Results By:</label>
+        <label className="mr-2 mt-4 ml-2 text-white ">Sort By:</label>
         <select
-          className="border border-gray-300 rounded-md px-2 py-1 mt-2 focus:outline-none focus:ring focus:border-blue-300"
+          className="border border-gray-300 rounded-md px-2 py-1 mt-3 focus:outline-none focus:ring focus:border-blue-300"
           value={sortOption}
           onChange={(e) => setSortOption(e.target.value)}
         >
-          <option value="random">Random</option>
           <option value="released">Released</option>
           <option value="genre">Genre</option>
           <option value="rating">Rating</option>
@@ -189,7 +191,7 @@ const SearchPage = () => {
             <img
               src={game.background_image}
               alt={game.name}
-              className="mt-2 h-50 w-full object-cover"
+              className="mt-2 h-40 w-full object-cover"
             />
             <h3 className="text-lg font-semibold mt-2 mb-2">{game.name}</h3>
             <div className="flex justify-center mb-2">
@@ -197,7 +199,7 @@ const SearchPage = () => {
                 game.platforms.map((platform) => (
                   <span
                     key={platform.platform.id}
-                    className="flex items-center justify-center mb-2 ml-1 gap-3"
+                    className="flex items-center justify-center mb-2 ml-2 gap-3"
                   >
                     {getPlatformIcon(platform.platform.name)}
                   </span>
@@ -213,6 +215,7 @@ const SearchPage = () => {
           </div>
         ))}
       </div>
+    </div>
     </div>
   );
 };

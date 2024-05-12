@@ -54,7 +54,7 @@ const GameList = ({ filteredGames }) => {
   };
 
   const renderRatingStars = (rating) => {
-    const roundedRating = Math.round(rating * 10) / 10; // Round off to 1 decimal place
+    const roundedRating = Math.round(rating * 10) / 10; 
     const stars = [];
     const fullStars = Math.floor(roundedRating);
     const halfStar = roundedRating - fullStars > 0 ? 1 : 0;
@@ -110,7 +110,7 @@ const GameList = ({ filteredGames }) => {
               <div className="my-4">
                 <p className="text-white">Genres:</p>
                 <TextWithMarquee>
-                  {game.genres.map((genre) => genre.name).join(", ")}
+                  {game.genres.slice(0,3).map((genre) => genre.name).join(", ")}
                 </TextWithMarquee>
                 {/* <p className={`marquee-text ${isMarquee ? 'animate-marquee whitespace-nowrap' : ''}`}>{game.genres.map((genre) => genre.name).join(", ")}</p> */}
               </div>
