@@ -11,7 +11,7 @@ const Notifications = ({ notifications }) => {
         
 
         <Link
-          to="/"
+          to="/settings"
           className="text-white py-2 px-6 rounded-md mr-4 transition ease-in-out hover:-translate-y-1 hover:scale-110  duration-300"
         >
           <RiArrowGoBackFill size={24}/>
