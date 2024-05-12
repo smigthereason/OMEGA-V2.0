@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { FaXbox, FaWindows, FaApple, FaLinux } from "react-icons/fa";
 import { SiPlaystation5, SiPlaystation4 } from "react-icons/si";
 import { BsNintendoSwitch, BsAndroid2 } from "react-icons/bs";
+import { FaStar, FaStarHalfAlt } from "react-icons/fa";
 
 
 
@@ -42,7 +43,9 @@ const SearchPage = () => {
     } else {
       sortSearchResults();
     }
-  }, [sortOption, searchResults]);
+  }
+  //  [sortOption, searchResults]
+);
 
   const fetchRandomGames = async () => {
     try {
@@ -111,6 +114,30 @@ const SearchPage = () => {
     }
   };
 
+  const renderRatingStars = (rating) => {
+    const roundedRating = Math.round(rating * 10) / 10; // Round off to 1 decimal place
+    const stars = [];
+    const fullStars = Math.floor(roundedRating);
+    const halfStar = roundedRating - fullStars > 0 ? 1 : 0;
+
+    for (let i = 0; i < fullStars; i++) {
+      stars.push(<FaStar key={`full-${i}`} className="text-yellow-500" />);
+    }
+    if (halfStar === 1) {
+      stars.push(<FaStarHalfAlt key="half" className="text-yellow-500" />);
+    }
+  
+    return (
+      <div className="flex">
+        {stars.map((star, index) => (
+          <div key={index} className="flex items-center text-center justify-between">
+            {star}
+          </div>
+        ))}
+      </div>
+    );
+  };
+
   return (
     <div className="container bg-black   ">
       <div className="flex justify-center mb-4">
@@ -176,6 +203,10 @@ const SearchPage = () => {
                   </span>
                 ))}
             </div>
+            <p className="text-center text-white ml-40 mb-2 ">
+              {renderRatingStars(game.rating)}
+            </p>
+
             <p className="text-sm text-gray-600">
               Release Date:{game.released}
             </p>
