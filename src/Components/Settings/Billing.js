@@ -1,81 +1,71 @@
+
+
 import React, { useState } from 'react';
 
 const Billing = () => {
   const [selectedOption, setSelectedOption] = useState('');
+  const [cardNumber, setCardNumber] = useState('');
 
   const handleOptionChange = (e) => {
     setSelectedOption(e.target.value);
   };
 
-  const handlePayment = () => {
-    // Handle payment logic based on the selected option
-    console.log(`Payment method selected: ${selectedOption}`);
-    alert(`Payment method selected: ${selectedOption}`);
+  const handleCardNumberChange = (e) => {
+    setCardNumber(e.target.value);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // Here you can handle the submission, e.g., send data to backend or perform validation
+    console.log({ selectedOption, cardNumber });
+    alert('Billing information submitted successfully!');
   };
 
   return (
     <div className="container mx-auto mt-10">
-      <h1 className="text-3xl font-semibold mb-5">Select Payment Method</h1>
-      <div className="flex flex-col space-y-4">
-        <div className="flex items-center">
-          <input
-            type="radio"
-            id="mpesa"
-            name="paymentOption"
-            value="Mpesa"
-            checked={selectedOption === 'Mpesa'}
-            onChange={handleOptionChange}
-          />
-          <label htmlFor="mpesa" className="ml-2 text-lg">
-            Mpesa
+      <h1 className="text-3xl font-semibold mb-5">Billing Information</h1>
+      <form onSubmit={handleSubmit} className="max-w-md mx-auto">
+        <div className="mb-4">
+          <label htmlFor="paymentOption" className="block text-sm font-medium text-gray-700">
+            Select Payment Option
           </label>
-        </div>
-        <div className="flex items-center">
-          <input
-            type="radio"
-            id="paypal"
+          <select
+            id="paymentOption"
             name="paymentOption"
-            value="PayPal"
-            checked={selectedOption === 'PayPal'}
+            value={selectedOption}
             onChange={handleOptionChange}
-          />
-          <label htmlFor="paypal" className="ml-2 text-lg">
-            PayPal
-          </label>
+            className="mt-1 p-2 block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+          >
+            <option value="">Select Payment Option</option>
+            <option value="mpesa">Mpesa</option>
+            <option value="paypal">PayPal</option>
+            <option value="mastercard">Mastercard</option>
+            <option value="visa">Visa</option>
+          </select>
         </div>
-        <div className="flex items-center">
-          <input
-            type="radio"
-            id="mastercard"
-            name="paymentOption"
-            value="Mastercard"
-            checked={selectedOption === 'Mastercard'}
-            onChange={handleOptionChange}
-          />
-          <label htmlFor="mastercard" className="ml-2 text-lg">
-            Mastercard
-          </label>
-        </div>
-        <div className="flex items-center">
-          <input
-            type="radio"
-            id="visa"
-            name="paymentOption"
-            value="Visa"
-            checked={selectedOption === 'Visa'}
-            onChange={handleOptionChange}
-          />
-          <label htmlFor="visa" className="ml-2 text-lg">
-            Visa
-          </label>
-        </div>
-      </div>
-      <button
-        onClick={handlePayment}
-        className="bg-indigo-500 text-white px-4 py-2 mt-6 rounded-md hover:bg-indigo-600 transition duration-300"
-      >
-        Proceed to Payment
-      </button>
+        {selectedOption && (
+          <div className="mb-4">
+            <label htmlFor="cardNumber" className="block text-sm font-medium text-gray-700">
+              Enter Card Number
+            </label>
+            <input
+              type="text"
+              id="cardNumber"
+              name="cardNumber"
+              value={cardNumber}
+              onChange={handleCardNumberChange}
+              placeholder="Enter card number"
+              className="mt-1 p-2 block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+            />
+          </div>
+        )}
+        <button
+          type="submit"
+          className="bg-indigo-500 text-white px-4 py-2 rounded-md hover:bg-indigo-600 transition duration-300"
+        >
+          Submit
+        </button>
+      </form>
     </div>
   );
 };
