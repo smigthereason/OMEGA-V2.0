@@ -120,6 +120,14 @@ const Settings = () => {
                       Notifications
                     </Link>
                   </li>
+                  <li className="mb-2">
+                  <Link
+                      to="/billing"
+                      className="block text-sm text-gray-300 hover:text-white"
+                    >
+                      Billing
+                    </Link>
+                  </li>
                 </ul>
               </div>
             </div>

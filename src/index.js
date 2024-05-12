@@ -12,6 +12,7 @@ import User from './Components/User';
 import Cart from './Components/Cart';
 import SocialLinks from './Components/Settings/SocialLinks';
 import Notifications from "./Components/Settings/Notifications"
+import Billing from "./Components/Settings/Billing"
 
 const router = createBrowserRouter([
   {
@@ -37,6 +38,10 @@ const router = createBrowserRouter([
   {
     path: "/notifications",
     element: <Notifications />
+  },
+  {
+    path: "/billing",
+    element:<Billing/>
   },
   {
     path: "/user",
