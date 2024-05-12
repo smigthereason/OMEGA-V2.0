@@ -23,10 +23,10 @@ const SocialLinks = () => {
   };
 
   return (
-    <div className="container mx-auto mt-10 h-96 bg-black rounded-lg">
-      <h1 className="text-3xl font-semibold text-white mb-5 ml-10 py-4 px-4">Social Links</h1>
-      <form onSubmit={handleSubmit} className=" bg-slate-700 rounded-lg max-w-md mx-auto ml-8">
-        <div className="mb-4 ">
+    <div className="container mx-auto mt-10  bg-black rounded-lg justify-center  py-8 h-screen ">
+      <h1 className="font-bold text-lg mb-4 uppercase text-white text-center">Social Links</h1>
+      <form onSubmit={handleSubmit} className=" max-w-md mx-auto text-center ">
+        <div className="mb-4 justify-center text-center">
           <label htmlFor="facebook" className="block text-sm font-lg text-black ml-2 pt-2 ">
             Facebook Profile
           </label>

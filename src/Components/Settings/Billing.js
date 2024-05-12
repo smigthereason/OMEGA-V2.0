@@ -21,9 +21,9 @@ const Billing = () => {
   };
 
   return (
-    <div className="container mx-auto mt-10 h-96 bg-black rounded-lg text-white ">
-      <h1 className="text-3xl font-semibold mb-5 mt-5">Billing Information</h1>
-      <form onSubmit={handleSubmit} className="max-w-md mx-auto">
+    <div className="bg-black rounded-lg p-6 w-full pt-10 justify-center h-screen">
+      <h1 className="font-bold text-lg mb-14 uppercase text-white text-center ">Billing Information</h1>
+      <form onSubmit={handleSubmit} className="max-w-md mx-auto justify-center">
         <div className="mb-4">
           <label htmlFor="paymentOption" className="block text-sm font-medium  text-white">
             Select Payment Option
