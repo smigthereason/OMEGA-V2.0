@@ -37,7 +37,7 @@ const Settings = () => {
                     <label className="block text-gray-400 mb-1">Username</label>
                     <input
                       type="text"
-                      className="input-field rounded-lg"
+                      className="input-field rounded-lg text-black"
                       value=""
                       required
                     />
@@ -52,7 +52,7 @@ const Settings = () => {
                     />
                   </div>
                   <div className="mb-4">
-                    <label className="block text-gray-400 mb-1">E-mail</label>
+                    <label className="block text- mb-1">E-mail</label>
                     <input
                       type="text"
                       className="input-field rounded-lg"
@@ -99,21 +99,14 @@ const Settings = () => {
                       Change Password
                     </Link>
                   </li>
+                  
                   <li className="mb-2">
-                    <a
-                      href="#account-info"
+                  <Link
+                      to="/socialLinks"
                       className="block text-sm text-gray-300 hover:text-white"
                     >
-                      Info
-                    </a>
-                  </li>
-                  <li className="mb-2">
-                    <a
-                      href="#account-social-links"
-                      className="block text-sm text-gray-300 hover:text-white"
-                    >
-                      Social links
-                    </a>
+                      Social Links
+                    </Link>
                   </li>
                   <li className="mb-2">
                     <a

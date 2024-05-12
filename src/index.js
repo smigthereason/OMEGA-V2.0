@@ -10,6 +10,7 @@ import Search from './Components/Search';
 import ChangePassword from './Components/Settings/ChangePassword';
 import User from './Components/User';
 import Cart from './Components/Cart';
+import SocialLinks from './Components/Settings/SocialLinks';
 
 const router = createBrowserRouter([
   {
@@ -27,6 +28,10 @@ const router = createBrowserRouter([
   {
     path: "/changePassword",
     element: <ChangePassword />
+  },
+  {
+    path: "/socialLinks",
+    element: <SocialLinks />
   },
   {
     path: "/user",

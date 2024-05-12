@@ -3,6 +3,8 @@ import { FaXbox, FaWindows, FaApple, FaLinux } from "react-icons/fa";
 import { SiPlaystation5, SiPlaystation4 } from "react-icons/si";
 import { BsNintendoSwitch, BsAndroid2 } from "react-icons/bs";
 
+
+
 const API_KEY= process.env.REACT_APP_RAWG_API_KEY
 
 
@@ -110,7 +112,7 @@ const SearchPage = () => {
   };
 
   return (
-    <div className="container mx-auto mt-8 ">
+    <div className="container bg-black   ">
       <div className="flex justify-center mb-4">
         <input
           type="text"
@@ -160,7 +162,7 @@ const SearchPage = () => {
             <img
               src={game.background_image}
               alt={game.name}
-              className="mt-2 h-auto w-full object-cover"
+              className="mt-2 h-50 w-full object-cover"
             />
             <h3 className="text-lg font-semibold mt-2 mb-2">{game.name}</h3>
             <div className="flex justify-center mb-2">
@@ -168,7 +170,7 @@ const SearchPage = () => {
                 game.platforms.map((platform) => (
                   <span
                     key={platform.platform.id}
-                    className="flex h-4 w-6 justify-center items-center"
+                    className="flex items-center justify-center mb-2 ml-1 gap-3"
                   >
                     {getPlatformIcon(platform.platform.name)}
                   </span>
