@@ -11,6 +11,7 @@ import ChangePassword from './Components/Settings/ChangePassword';
 import User from './Components/User';
 import Cart from './Components/Cart';
 import SocialLinks from './Components/Settings/SocialLinks';
+import Notifications from "./Components/Settings/Notifications"
 
 const router = createBrowserRouter([
   {
@@ -32,6 +33,10 @@ const router = createBrowserRouter([
   {
     path: "/socialLinks",
     element: <SocialLinks />
+  },
+  {
+    path: "/notifications",
+    element: <Notifications />
   },
   {
     path: "/user",

@@ -113,20 +113,12 @@ const Settings = () => {
                     </Link>
                   </li>
                   <li className="mb-2">
-                    <a
-                      href="#account-connections"
-                      className="block text-sm text-gray-300 hover:text-white"
-                    >
-                      Connections
-                    </a>
-                  </li>
-                  <li className="mb-2">
-                    <a
-                      href="#account-notifications"
+                  <Link
+                      to="/notifications"
                       className="block text-sm text-gray-300 hover:text-white"
                     >
                       Notifications
-                    </a>
+                    </Link>
                   </li>
                 </ul>
               </div>

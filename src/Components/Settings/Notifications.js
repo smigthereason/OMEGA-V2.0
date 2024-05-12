@@ -3,10 +3,11 @@ import { RiArrowGoBackFill } from "react-icons/ri";
 import { Link } from "react-router-dom";
 
 
-const Notifications = ({  }) => {
+const Notifications = ({ notifications }) => {
   return (
+    <div>
     <div className="flex items-center justify-between bg-black border-black p-4 shadow-md text-white uppercase">
-      <div className="flex flex-row">
+      <div className="flex flex-row ml-3 mt-2">
         
 
         <Link
@@ -16,10 +17,17 @@ const Notifications = ({  }) => {
           <RiArrowGoBackFill size={24}/>
         </Link>
         
-        <p>Please Log in to Proceed</p>
+        <p className="mt-2">Please Log in to Proceed</p>
       </div>
-      <p className="text-white">YOUR NOTIFICATIONS WILL APPEAR HERE.</p>
+      
+     
     </div>
+    <div className="text-white text-center font-extrabold">
+    <p>
+        YOUR NOTIFICATION WILL APPEAR HERE.
+    </p>
+  </div>
+  </div>
   );
 };
 
