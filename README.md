@@ -2,7 +2,7 @@
 
 ## Single Page Application Project
 
-OMEGA is a single page application where you can buy and play your favorite games at the comfort of your preferred device.
+OMEGA is a single-page application where you can buy and play your favorite games in the comfort of your preferred device.
 
 ## Getting Started
 
@@ -36,7 +36,7 @@ To contribute or work on this project, you need:
 
 ## Minimum Viable Product
 
-A functional single page application embracing the ideal Omega Community.
+A functional single-page application embracing the ideal Omega Community.
 
 ## Key Features
 
@@ -44,24 +44,24 @@ A functional single page application embracing the ideal Omega Community.
 - Seamless webpage design that responds to different displays.
 - Comprehensive library showcasing available games across different genres.
 - Offer discounts to Omega members for game purchases and additional
-  information on latest game releases.
+  information on the latest game releases.
 - A shopping cart feature for games selected.
 - Search function for easier browsing on the interface.
-- Api integration to enhance functionality of the platform.
+- API integration to enhance the functions of the platform.
 - Sponsor section to recognize partners of Omega.
 - A contact section for the Omega team with addresses and social links.
 
 ## Objectives
 
-- Create a user-friendly framework that embraces ideals of Omega.
-- Implement and Integrate Api for functionality.
+- Create a user-friendly framework that embraces the ideals of Omega.
+- Implement and Integrate API for functionality.
 - Feature a library of game options and facilitate in-app purchases as well as
   offer discounts to members subscribed to Omega.
-- Enable various platforms (i.e. Pc, Xbox, PlayStation) to interact with the
+- Enable various platforms (i.e. PC, Xbox, PlayStation) to interact with the
   webpage and seamless transitions between them.
-- Recognize Omega’s sponsors and avail various payment options fro purchase
+- Recognize Omega’s sponsors and avail payment options for purchases.
   made.
-- Provide Contact Options: Where visitors can easily get in touch with Omega
+- Provide Contact Options: Where visitors can easily get in touch with OMEGA.
   help desk for inquiries and customer care services.
 
 ## API USED
