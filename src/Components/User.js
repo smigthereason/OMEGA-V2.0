@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 const User = ({ username, email, avatarUrl }) => {
   return (
-    <div className="flex items-center justify-between border-black p-4 rounded-lg shadow-md text-white uppercase">
+    <div className="flex items-center justify-between border-black p-4 rounded-lg shadow-md text-white uppercase bg-black">
       <div className="flex flex-row">
         
 
@@ -16,7 +16,7 @@ const User = ({ username, email, avatarUrl }) => {
           <RiArrowGoBackFill size={24}/>
         </Link>
         
-        <p>Please Log in to Proceed</p>
+        <p className="mt-2">Please Log in to Proceed</p>
       </div>
       
     </div>

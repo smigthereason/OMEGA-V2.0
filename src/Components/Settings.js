@@ -87,13 +87,13 @@ const Settings = () => {
             <div className="col-span-1">
               <div className="bg-gray-800 rounded-lg p-4">
                 <ul className="list-none">
-                  <li className="mb-2">
-                    <a
-                      href="#account-general"
+                <li className="mb-2">
+                    <Link
+                      to="/settings"
                       className="block text-sm text-gray-300 hover:text-white"
                     >
                       General
-                    </a>
+                    </Link>
                   </li>
                   <li className="mb-2">
                     <Link

@@ -16,7 +16,7 @@ const Cart = ({  }) => {
           <RiArrowGoBackFill size={24}/>
         </Link>
         
-        <p>Please Log in to Proceed</p>
+        <p className="mt-2"> Please Log in to Proceed</p>
       </div>
       
     </div>

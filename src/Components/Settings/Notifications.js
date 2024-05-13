@@ -17,14 +17,14 @@ const Notifications = ({ notifications }) => {
           <RiArrowGoBackFill size={24}/>
         </Link>
         
-        <p className="mt-2">Please Log in to Proceed</p>
+        <p className="">Please Log in to Proceed</p>
       </div>
       
      
     </div>
-    <div className="text-white text-center font-extrabold">
+    <div className="text-white text-center font-extrabold mt-20">
     <p>
-        YOUR NOTIFICATION WILL APPEAR HERE.
+        YOUR NOTIFICATIONS WILL APPEAR HERE.
     </p>
   </div>
   </div>

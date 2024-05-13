@@ -4,9 +4,8 @@ import { SiPlaystation5, SiPlaystation4 } from "react-icons/si";
 import { BsNintendoSwitch, BsAndroid2 } from "react-icons/bs";
 import { FaStar, FaStarHalfAlt } from "react-icons/fa";
 import { BsSearch } from "react-icons/bs";
-
-
-
+import { Link } from "react-router-dom";
+import { RiArrowGoBackFill } from "react-icons/ri";
 
 const API_KEY= process.env.REACT_APP_RAWG_API_KEY
 
@@ -144,9 +143,17 @@ const SearchPage = () => {
     <div className="flex flex-col gap-4 bg-black">
     <div className="container mt-4 ml-6 mr-4">
       <div className="flex justify-center mb-4">
+
+      <Link
+          to="/"
+          className="text-white py-2 px-4 mr-4 mt-2 rounded-md  transition ease-in-out hover:-translate-y-1 hover:scale-110  duration-300"
+        >
+          <RiArrowGoBackFill size={24}/>
+        </Link>
+
         <input
           type="text"
-          className="border border-gray-300 rounded-full px-4 py-2 focus:outline-none focus:ring focus:border-blue-300 w-96 mt-2 mb-2"
+          className="border border-gray-300  px-4 py-2  w-96 mt-2 mb-2"
           placeholder="Search for games..."
           value={searchQuery}
           onChange={(e) => {
@@ -155,7 +162,7 @@ const SearchPage = () => {
           }}
         />
         <button
-          className="ml-4 px-6 py-2  text-white rounded-full hover:bg-blue-600 focus:outline-none"
+          className="ml-2 px-6 py-2  text-white transition ease-in-out hover:-translate-y-1 hover:scale-110  duration-300"
           onClick={() => {
             handleSearch();
             setDefaultResults([]);
