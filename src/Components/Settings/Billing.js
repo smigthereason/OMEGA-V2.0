@@ -15,7 +15,7 @@ const Billing = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Here you can handle the submission, e.g., send data to backend or perform validation
+    
     console.log({ selectedOption, cardNumber });
     alert('Billing information submitted successfully!');
   };

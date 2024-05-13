@@ -5,11 +5,11 @@ import { Link } from 'react-router-dom';
 import LoginAudio from '../Assets/Metro Boomin, NAV, A Boogie wit da Hoodie, Swae Lee - Calling.mp3'
 
 const Login = () => {
-  const [audio] = useState(new Audio(LoginAudio)); // Create an audio object in state
+  const [audio] = useState(new Audio(LoginAudio)); 
 
   
   const handleLogoClick = () => {
-    audio.pause(); // Pause the audio when the logo is clicked
+    audio.pause(); 
     audio.currentTime = 0; // Reset audio to start
   };
 
