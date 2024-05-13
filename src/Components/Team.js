@@ -14,7 +14,7 @@ const Team = () => {
     { name: "William Ndirangu", jobTitle: "Chief Technology Officer (CTO)", image: TeamMember2 },
     { name: "Stephy Kamau", jobTitle: "Chief Creative Officer (CCO)", image: TeamMember4 },
     { name: "Uwes Ahabab", jobTitle: "Chief Financial Officer (CFO)", image: TeamMember5},
-    { name: "Liz Zawadi", jobTitle: "Chief Operations Officer (COO)", image: TeamMember6 },
+    { name: "Beatrice Wambui", jobTitle: "Chief Operations Officer (COO)", image: TeamMember6 },
     
   ];
 
