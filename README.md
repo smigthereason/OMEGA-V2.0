@@ -8,11 +8,18 @@ OMEGA is a single-page application where you can buy and play your favorite game
 
 To get started with this project, follow these steps:
 
-1. Clone this repository to your local machine.
-2. Run npm install to install the required dependencies.
-3. Get a RAWG API key at https://rawg.io/apidocs. NB:Create an account first.
-4. Add the API key to _.env_ .
-5. Run npm run dev to start the web server.
+1. Clone this repository
+```bash
+git clone git@github.com:smigthereason/OMEGA-V2.0.git
+```
+2. Install dependencies
+```bash
+ npm install 
+ ```
+3. Run the application
+```bash
+ npm start
+ ```
 
 ## Live Link
 
