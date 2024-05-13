@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import Logo from "../Assets/logo-no-background.png";
 
-// import Navbar from "./Navbar";
 import VideoBackground from "../Assets/HF .mp4";
 
 function SignupPage() {
@@ -23,16 +22,14 @@ function SignupPage() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Here you can add your logic to handle form submission
-    // For example, you can send the form data to a backend API
+
     console.log(formData);
-    // After successful signup, set isRegistered to true
+
     setIsRegistered(true);
   };
 
-  // Redirect after successful registration
   if (isRegistered) {
-    window.location.href = "/"; // Redirect to the home page
+    window.location.href = "/"; 
   }
 
   return (
