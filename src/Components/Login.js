@@ -24,24 +24,24 @@ const Login = () => {
           className="video-background"
         />
         <div className="flex items-center justify-center bg-cover h-screen ">
-          <div className="w-11/12 md:w-2/3 lg:w-1/2 xl:w-1/3 bg-transparent bg-opacity-80 backdrop-blur-lg shadow-lg rounded-lg overflow-hidden  px-8 pt-6 pb-8 mb-4">
+          <div className="w-11/12 md:w-2/3 lg:w-1/2 xl:w-2/5 2xl:w-1/3 bg-transparent bg-opacity-80 backdrop-blur-lg shadow-lg rounded-lg overflow-hidden  px-8 pt-6 pb-8 mb-4">
             <Link
               to="/"
-              className="flex items-center text-white ml-28 px-10 py-8 "
-              onClick={handleLogoClick} 
+              className="flex justify-center py-6"
+              onClick={handleLogoClick}
             >
-              <img src={Logo} alt="Logo" className="h-14 w-auto transition ease-in-out hover:-translate-y-1 hover:scale-110  duration-300" />
-            </Link>{" "}
-            <form>
+              <img src={Logo} alt="Logo" className="h-12 sm:h-14 lg:h-16 w-auto transition ease-in-out hover:-translate-y-0.5 hover:scale-105 duration-300" />
+            </Link>
+            <form className="max-w-sm sm:max-w-md lg:max-w-lg xl:max-w-xl 2xl:max-w-2xl mx-auto w-full px-2 text-center">
               <div className="mb-4">
                 <label
-                  className="block text-white  text-sm font-bold mb-2"
+                  className="block text-white text-sm lg:text-base font-bold mb-2"
                   htmlFor="username"
                 >
                   Username
                 </label>
                 <input
-                  className="shadow appearance-none border rounded-xl w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                  className="shadow appearance-none border rounded-xl w-full py-2 lg:py-2.5 px-3 leading-tight"
                   id="username"
                   type="text"
                   placeholder="Your Username"
@@ -50,27 +50,30 @@ const Login = () => {
               </div>
               <div className="mb-6">
                 <label
-                  className="block text-white text-sm font-bold mb-2"
+                  className="block text-white text-sm lg:text-base font-bold mb-2"
                   htmlFor="password"
                 >
                   Password
                 </label>
                 <input
-                  className="shadow appearance-none border rounded-xl w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                  className="shadow appearance-none border rounded-xl w-full py-2 lg:py-2.5 px-3 leading-tight"
                   id="password"
                   type="password"
                   placeholder="Your Password"
                   required
                 />
               </div>
-              <div className="flex items-center justify-between text-center">
+              <div className="flex justify-center">
                 <button
-                  className="ml-40  text-white font-bold py-2 px-4 transition ease-in-out hover:-translate-y-1 hover:scale-110  duration-300 focus:outline-none focus:shadow-outline"
+                  className="bg-teal-500 hover:bg-teal-600 text-white font-semibold py-2 lg:py-2.5 px-8 lg:px-10 rounded-md transition text-sm lg:text-base"
                   type="submit"
                 >
                   Log In
                 </button>
               </div>
+              <p className="text-center mt-4 text-xs lg:text-sm text-gray-400">
+                Don't have an account? <Link to="/signup" className="underline hover:text-white">Sign up</Link>
+              </p>
             </form>
           </div>
         </div>

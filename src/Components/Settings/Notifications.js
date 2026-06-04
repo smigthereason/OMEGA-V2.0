@@ -3,31 +3,23 @@ import { RiArrowGoBackFill } from "react-icons/ri";
 import { Link } from "react-router-dom";
 
 
-const Notifications = ({ notifications }) => {
+const Notifications = () => {
   return (
-    <div>
-    <div className="flex items-center justify-between bg-black border-black p-4 shadow-md text-white uppercase">
-      <div className="flex flex-row ml-3 mt-2">
-        
-
+    <div className="min-h-[60vh] bg-[#292929]">
+      <div className="flex items-center gap-3 bg-black/70 p-4 text-white">
         <Link
           to="/settings"
-          className="text-white py-2 px-6 rounded-md mr-4 transition ease-in-out hover:-translate-y-1 hover:scale-110  duration-300"
+          className="inline-flex w-9 h-9 items-center justify-center rounded hover:bg-white/10 transition"
+          aria-label="Back to settings"
         >
-          <RiArrowGoBackFill size={24}/>
+          <RiArrowGoBackFill size={20} />
         </Link>
-        
-        <p className="mt-2">Please Log in to Proceed</p>
+        <p className="uppercase tracking-wide text-sm">Notifications</p>
       </div>
-      
-     
+      <div className="flex flex-col items-center justify-center h-64 text-white/60 text-center px-6">
+        <p className="text-lg">Your notifications will appear here once you are logged in.</p>
+      </div>
     </div>
-    <div className="text-white text-center font-extrabold mt-20">
-    <p>
-        YOUR NOTIFICATIONS WILL APPEAR HERE.
-    </p>
-  </div>
-  </div>
   );
 };
 

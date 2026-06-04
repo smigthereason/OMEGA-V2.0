@@ -1,20 +1,11 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { FaXbox, FaWindows, FaApple, FaLinux } from "react-icons/fa";
 import { SiPlaystation5, SiPlaystation4 } from "react-icons/si";
 import { BsNintendoSwitch, BsAndroid2 } from "react-icons/bs";
 import { FaStar, FaStarHalfAlt } from "react-icons/fa";
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-import { IoIosArrowDropleft } from "react-icons/io";
 
-import { IoIosArrowDropright } from "react-icons/io";
-
-
-const API_KEY= process.env.REACT_APP_RAWG_API_KEY
-
-
+const API_KEY = process.env.REACT_APP_RAWG_API_KEY;
 
 const getPlatformIcon = (platformName) => {
   switch (platformName.toLowerCase()) {
@@ -41,7 +32,6 @@ const getPlatformIcon = (platformName) => {
 
 const Discount = () => {
   const [games, setGames] = useState([]);
-  const [hoveredGame, setHoveredGame] = useState(null);
 
   const renderRatingStars = (rating) => {
     const roundedRating = Math.round(rating * 10) / 10; // Round off to 1 decimal place
@@ -57,7 +47,7 @@ const Discount = () => {
     }
 
     return (
-      <div className="flex">
+      <div className="flex justify-center">
         {stars.map((star, index) => (
           <div key={index} className="flex items-center">
             {star}
@@ -79,7 +69,7 @@ const Discount = () => {
     const fetchGames = async () => {
       try {
         const response = await fetch(
-          `https://api.rawg.io/api/games?key=${API_KEY}&dates=2016-01-01,2022-12-31&ordering=-added&page_size=40&genres=sports,action,arcade,racing`
+          `https://api.rawg.io/api/games?key=${API_KEY}&dates=2016-01-01,2022-12-31&ordering=-added&page_size=40&genres=sports,action,arcade,racing`,
         );
         if (!response.ok) {
           throw new Error("Network response was not ok.");
@@ -94,122 +84,84 @@ const Discount = () => {
     fetchGames();
   }, []);
 
-  const sliderRef = useRef(null);
-
-  const handleSlide = (direction) => {
-    if (sliderRef.current) {
-      if (direction === "prev") {
-        sliderRef.current.slickPrev();
-      } else if (direction === "next") {
-        sliderRef.current.slickNext();
-      }
-    }
-  };
-
-  const handleMouseEnter = () => {
-    setHoveredGame(false);
-  };
-
-  const handleMouseLeave = () => {
-    setHoveredGame(true);
-  };
-
-  const sliderSettings = {
-    dots: false,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    autoplay: true,
-    autoplaySpeed: 5000,
-    arrows: false,
-    swipeToSlide: false,
-  };
+  // Responsive grid of deal cards. Simplified for cross-screen reliability.
+  // Limit items so the section doesn't become endless on desktop.
+  const displayDeals = games.slice(0, 12);
 
   return (
-    <div class="overflow-x-auto w-screen">
-      <div class="flex gap-4 p-4">
-        {games.map((game) => (
+    <div>
+      <div className="flex items-center justify-between mb-3 px-1">
+        <h2 className="text-xl sm:text-2xl lg:text-3xl font-semibold text-white tracking-wide">
+          HOT DEALS
+        </h2>
+        <div className="hidden sm:flex gap-2 text-teal-400">
+          <span className="text-xs uppercase tracking-[2px]">Limited time</span>
+        </div>
+      </div>
+
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 2xl:grid-cols-6 gap-3 sm:gap-4 lg:gap-5">
+        {displayDeals.map((game) => (
           <div
             key={game.id}
-            className="bg-black p-4 rounded-lg shadow-md text-center flex-shrink-0 border border-gray-300"
-            style={{ maxWidth: "500px" }}
+            className="bg-[#111] p-3 sm:p-4 lg:p-5 rounded-xl shadow-md text-center flex flex-col border border-gray-800 hover:border-teal-600/50 transition"
           >
-            <div
-              className="relative overflow-hidden h-49 rounded-sm max-h-70"
-              onMouseEnter={handleMouseEnter}
-              onMouseLeave={handleMouseLeave}
-            >
-              <Slider {...sliderSettings} ref={sliderRef}>
-                {game.short_screenshots.map((screenshot, index) => (
-                  <img
-                    key={index}
-                    src={screenshot.image}
-                    alt={`Screenshot ${index + 1}`}
-                    className="w-full h-full object-cover object-center mb-4"
-                  />
-                ))}
-              </Slider>
-              {hoveredGame && (
-                <div className="absolute top-0 left-0 right-0 bottom-0 flex items-center justify-between">
-                  <button
-                    onClick={() => handleSlide("prev")}
-                    className=" text-white py-2 px-4 "
-                  >
-                   <IoIosArrowDropleft  size={30}/>
-                  </button>
-                  <button
-                    onClick={() => handleSlide("next")}
-                    className=" text-white py-2 px-4 "
-                  >
-                   <IoIosArrowDropright size={30}/>
-                  </button>
-                </div>
-              )}
+            <div className="relative overflow-hidden rounded-lg mb-3 aspect-video bg-black">
+              <img
+                src={
+                  game.background_image ||
+                  (game.short_screenshots && game.short_screenshots[0]?.image)
+                }
+                alt={game.name}
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute top-2 right-2 bg-black/70 text-emerald-400 text-[10px] lg:text-xs font-bold px-2 py-0.5 rounded">
+                -{calculateDiscount(game.rating)}%
+              </div>
             </div>
 
-            <div className="text-center text-white">
-              <h3 className="text-lg font-semibold mb-2 uppercase">
+            <div className="flex-1 flex flex-col">
+              <h3 className="text-sm sm:text-base lg:text-lg font-semibold text-white line-clamp-2 mb-1.5 uppercase tracking-wide leading-tight">
                 {game.name}
               </h3>
-              <div className="p-4">
-                <div className="flex items-center justify-center mb-2 gap-3">
-                  {game.platforms.map((platform) => {
-                    const platformIcon = getPlatformIcon(platform.platform.name);
-                    if (platformIcon) {
-                      return (
-                        <span
-                          key={platform.platform.id}
-                          className="flex mb-2 h-4 w-6 justify-center items-center"
-                        >
-                          {platformIcon}
-                        </span>
-                      );
-                    }
-                  })}
-                </div>
-                <p className="flex h-4 w-50 justify-center">
-                  {renderRatingStars(game.rating)}
-                </p>
-              </div>
-              <p className="text-green-600 mb-2">
-                Discount: {calculateDiscount(game.rating)}%
-              </p>
-            </div>
 
-            <div className="flex items-center justify-center">
-              <Link
-                to="/login"
-                className="bg-teal-400 text-white py-2 px-6 rounded-md mr-4 hover:bg-teal-500/90 transition duration-300"
-              >
-                PLAY
-              </Link>
-              <Link
-                to="/signup"
-                className="bg-teal-400 text-white py-2 px-6 rounded-md hover:bg-teal-500/90 transition duration-300"
-              >
-                BUY NOW
-              </Link>
+              {/* Consistent height for console icons */}
+              <div className="flex items-center justify-center mb-1.5 gap-1.5 flex-wrap min-h-[24px]">
+                {game.platforms?.slice(0, 4).map((platform, idx) => {
+                  const platformIcon = getPlatformIcon(platform.platform.name);
+                  if (platformIcon) {
+                    return (
+                      <span
+                        key={idx}
+                        className="text-base lg:text-lg text-white"
+                      >
+                        {platformIcon}
+                      </span>
+                    );
+                  }
+                  return null;
+                })}
+              </div>
+
+              {/* Stars at center bottom (pushed above buttons) */}
+              <div className="mt-auto mb-1 flex justify-center">
+                {renderRatingStars(game.rating)}
+              </div>
+
+              {/* Equal sized buttons */}
+              <div className="pt-1 grid grid-cols-2 gap-2">
+                <Link
+                  to="/login"
+                  className="text-center text-[10px] sm:text-xs lg:text-sm bg-teal-400 hover:bg-teal-500 active:bg-teal-600 transition text-white py-1 px-2 sm:py-1.5 sm:px-3 rounded-md font-medium"
+                >
+                  PLAY NOW
+                </Link>
+                <Link
+                  to="/signup"
+                  className="text-center text-[10px] sm:text-xs lg:text-sm bg-white/90 hover:bg-white text-black py-1 px-2 sm:py-1.5 sm:px-3 rounded-md font-medium transition"
+                >
+                  BUY NOW
+                </Link>
+              </div>
             </div>
           </div>
         ))}

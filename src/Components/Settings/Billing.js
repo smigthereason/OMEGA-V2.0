@@ -21,9 +21,9 @@ const Billing = () => {
   };
 
   return (
-    <div className="bg-black rounded-lg p-6 w-full pt-10 justify-center h-screen">
-      <h1 className="font-bold text-lg mb-14 uppercase text-white text-center ">Billing Information</h1>
-      <form onSubmit={handleSubmit} className="max-w-md mx-auto justify-center">
+    <div className="bg-black rounded-lg p-6 w-full pt-10 justify-center min-h-[60vh]">
+      <h1 className="font-bold text-lg lg:text-xl mb-8 lg:mb-10 uppercase text-white text-center ">Billing Information</h1>
+      <form onSubmit={handleSubmit} className="max-w-md lg:max-w-lg mx-auto justify-center">
         <div className="mb-4">
           <label htmlFor="paymentOption" className="block text-sm font-medium  text-white">
             Select Payment Option
@@ -33,7 +33,7 @@ const Billing = () => {
             name="paymentOption"
             value={selectedOption}
             onChange={handleOptionChange}
-            className="mt-1 p-2 block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-s text-black"
+            className="mt-1 p-2 block w-full border-gray-600 rounded-md focus:border-teal-500"
           >
             <option value="">Select Payment Option</option>
             <option value="mpesa">Mpesa</option>
@@ -54,24 +54,26 @@ const Billing = () => {
               value={cardNumber}
               onChange={handleCardNumberChange}
               placeholder="Enter card number"
-              className=" text-black mt-1 p-2 block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+              className="mt-1 p-2 block w-full border-gray-600 rounded-md focus:border-teal-500"
             />
           </div>
         )}
-        <button
-          type="submit"
-          className=" text-white px-4 py-2 ml-32 rounded-md transition ease-in-out hover:-translate-y-1 hover:scale-110  duration-300"
-        >
-          Submit
-        </button>
-        <Link to="/settings">
-                <button
-                  type="button"
-                  className="btn-default ml-2 text-white transition ease-in-out hover:-translate-y-1 hover:scale-110  duration-300"
-                >
-                  Cancel
-                </button>
-              </Link>
+        <div className="flex justify-center flex-wrap gap-2 pt-2">
+          <button
+            type="submit"
+            className="bg-teal-500 hover:bg-teal-600 text-white px-5 py-1.5 rounded-md transition text-sm"
+          >
+            Submit
+          </button>
+          <Link to="/settings">
+            <button
+              type="button"
+              className="px-4 py-1.5 text-sm text-white/80 hover:text-white border border-white/30 rounded-md hover:bg-white/5 transition"
+            >
+              Cancel
+            </button>
+          </Link>
+        </div>
       </form>
     </div>
   );

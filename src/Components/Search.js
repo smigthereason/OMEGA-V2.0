@@ -129,9 +129,9 @@ const SearchPage = () => {
     }
   
     return (
-      <div className="flex">
+      <div className="flex justify-center">
         {stars.map((star, index) => (
-          <div key={index} className="flex items-center text-center justify-between">
+          <div key={index} className="flex items-center">
             {star}
           </div>
         ))}
@@ -140,89 +140,105 @@ const SearchPage = () => {
   };
 
   return (
-    <div className="flex flex-col gap-4 bg-black">
-    <div className="container mt-4 ml-6 mr-4">
-      <div className="flex justify-center mb-4">
+    <div className="min-h-screen bg-[#292929] pb-10">
+      <div className="max-w-7xl mx-auto px-3 sm:px-4 pt-4">
+        {/* Top bar: back + search + sort */}
+        <div className="flex flex-col sm:flex-row sm:items-center gap-3 mb-5">
 
-      <Link
-          to="/"
-          className="text-white py-2 px-4 mr-4 mt-2 rounded-md  transition ease-in-out hover:-translate-y-1 hover:scale-110  duration-300"
-        >
-          <RiArrowGoBackFill size={24}/>
-        </Link>
-
-        <input
-          type="text"
-          className="border border-gray-300  px-4 py-2  w-96 mt-2 mb-2"
-          placeholder="Search for games..."
-          value={searchQuery}
-          onChange={(e) => {
-            setSearchQuery(e.target.value);
-            handleSearch();
-          }}
-        />
-        <button
-          className="ml-2 px-6 py-2  text-white transition ease-in-out hover:-translate-y-1 hover:scale-110  duration-300"
-          onClick={() => {
-            handleSearch();
-            setDefaultResults([]);
-          }}
-        >
-          <BsSearch size={24} />
-        </button>
-
-        <div className="flex justify-center mb-4">
-        <label className="mr-2 mt-4 ml-2 text-white ">Sort By:</label>
-        <select
-          className="border border-gray-300 rounded-md px-2 py-1 mt-3 focus:outline-none focus:ring focus:border-blue-300"
-          value={sortOption}
-          onChange={(e) => setSortOption(e.target.value)}
-        >
-          <option value="released">Released</option>
-          <option value="genre">Genre</option>
-          <option value="rating">Rating</option>
-        
-        </select>
-      </div>
-      </div>
-      
-      <div className="grid grid-cols-3 gap-4 w-auto">
-        {(searchQuery && searchResults.length > 0
-          ? searchResults
-          : defaultResults
-        ).map((game) => (
-          <div
-            key={game.id}
-            className="border border-gray-300 p-4 rounded-md  text-center text-white"
+          <Link
+            to="/"
+            className="inline-flex items-center justify-center w-10 h-10 rounded-md text-white hover:bg-white/10 transition shrink-0"
+            aria-label="Back to home"
           >
-            <img
-              src={game.background_image}
-              alt={game.name}
-              className="mt-2 h-40 w-full object-cover"
-            />
-            <h3 className="text-lg font-semibold mt-2 mb-2">{game.name}</h3>
-            <div className="flex justify-center mb-2">
-              {game.platforms &&
-                game.platforms.map((platform) => (
+            <RiArrowGoBackFill size={22} />
+          </Link>
+
+          <div className="flex-1 flex flex-col sm:flex-row gap-2">
+            <div className="flex flex-1">
+              <input
+                type="text"
+                className="flex-1 border border-gray-600 px-4 py-2 lg:py-2.5 rounded-l-md text-sm lg:text-base"
+                placeholder="Search for games..."
+                value={searchQuery}
+                onChange={(e) => {
+                  setSearchQuery(e.target.value);
+                  handleSearch();
+                }}
+              />
+              <button
+                className="px-4 rounded-r-md bg-teal-600 hover:bg-teal-500 text-white transition flex items-center justify-center"
+                onClick={() => {
+                  handleSearch();
+                  setDefaultResults([]);
+                }}
+                aria-label="Search"
+              >
+                <BsSearch size={18} />
+              </button>
+            </div>
+
+            <div className="flex items-center gap-2 text-sm lg:text-base">
+              <label className="text-white/80 whitespace-nowrap">Sort:</label>
+              <select
+                className="border border-gray-600 rounded-md px-3 py-1.5 lg:py-2"
+                value={sortOption}
+                onChange={(e) => setSortOption(e.target.value)}
+              >
+                <option value="random">Random</option>
+                <option value="released">Released</option>
+                <option value="genre">Genre</option>
+                <option value="rating">Rating</option>
+                <option value="platforms">Platform</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        {/* Results grid */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 2xl:grid-cols-7 gap-3 sm:gap-4 lg:gap-5">
+          {(searchQuery && searchResults.length > 0
+            ? searchResults
+            : defaultResults
+          ).map((game) => (
+            <div
+              key={game.id}
+              className="border border-gray-700 bg-[#1a1a1a] p-3 lg:p-4 rounded-xl text-center text-white flex flex-col"
+            >
+              <img
+                src={game.background_image}
+                alt={game.name}
+                className="mt-1 h-32 sm:h-36 lg:h-40 w-full object-cover rounded-lg"
+              />
+              <h3 className="text-sm sm:text-base lg:text-lg font-semibold mt-2 mb-1 line-clamp-1">{game.name}</h3>
+
+              {/* Consistent height for console icons */}
+              <div className="flex justify-center mb-1 gap-2 flex-wrap min-h-[24px]">
+                {game.platforms?.map((platform) => (
                   <span
                     key={platform.platform.id}
-                    className="flex items-center justify-center mb-2 ml-2 gap-3"
+                    className="flex items-center justify-center text-lg lg:text-xl"
                   >
                     {getPlatformIcon(platform.platform.name)}
                   </span>
                 ))}
-            </div>
-            <p className="text-center text-white ml-40 mb-2 ">
-              {renderRatingStars(game.rating)}
-            </p>
+              </div>
 
-            <p className="text-sm text-gray-600">
-              Release Date:{game.released}
-            </p>
-          </div>
-        ))}
+              {/* Stars at center bottom */}
+              <div className="mt-auto mb-1 flex justify-center">
+                {renderRatingStars(game.rating)}
+              </div>
+
+              <p className="text-[10px] lg:text-xs text-gray-400">
+                {game.released ? `Released: ${game.released}` : "Release date N/A"}
+              </p>
+            </div>
+          ))}
+        </div>
+
+        {(!searchQuery || (searchQuery && searchResults.length === 0)) && defaultResults.length === 0 && (
+          <p className="text-center text-gray-400 mt-8 text-sm">Start typing to search or view random games.</p>
+        )}
       </div>
-    </div>
     </div>
   );
 };

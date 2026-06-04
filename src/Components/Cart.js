@@ -3,22 +3,22 @@ import { RiArrowGoBackFill } from "react-icons/ri";
 import { Link } from "react-router-dom";
 
 
-const Cart = ({  }) => {
+const Cart = () => {
   return (
-    <div className="flex items-center justify-between bg-black border-black p-4 shadow-md text-white uppercase">
-      <div className="flex flex-row">
-        
-
+    <div className="min-h-[60vh] bg-[#292929]">
+      <div className="flex items-center gap-3 bg-black/70 p-4 text-white">
         <Link
           to="/"
-          className="text-white py-2 px-6 rounded-md mr-4 transition ease-in-out hover:-translate-y-1 hover:scale-110  duration-300"
+          className="inline-flex w-9 h-9 items-center justify-center rounded hover:bg-white/10 transition"
+          aria-label="Back"
         >
-          <RiArrowGoBackFill size={24}/>
+          <RiArrowGoBackFill size={20} />
         </Link>
-        
-        <p className="mt-2"> Please Log in to Proceed</p>
+        <p className="uppercase tracking-wide text-sm">Cart</p>
       </div>
-      
+      <div className="flex flex-col items-center justify-center h-64 text-white/70 text-center px-4">
+        <p className="text-lg">Please log in to view and manage your cart.</p>
+      </div>
     </div>
   );
 };

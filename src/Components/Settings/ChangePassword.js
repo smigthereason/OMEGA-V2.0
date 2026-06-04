@@ -45,63 +45,65 @@ function ChangePassword() {
         />
 
         <div className="flex items-center justify-center bg-cover h-screen ">
-          <div className="w-11/12 md:w-2/3 lg:w-1/2 xl:w-1/3 bg-transparent bg-opacity-60 backdrop-blur-lg shadow-lg rounded-lg overflow-hidden  px-8 pt-6 pb-8 mb-4">
+          <div className="w-11/12 md:w-2/3 lg:w-1/2 xl:w-2/5 2xl:w-1/3 bg-transparent bg-opacity-60 backdrop-blur-lg shadow-lg rounded-lg overflow-hidden  px-8 pt-6 pb-8 mb-4">
             <Link
               to="/settings"
-              className="flex items-center text-white ml-28 px-10 py-8 "
+              className="flex justify-center py-6"
             >
-              <img src={Logo} alt="Logo" className="h-14 w-auto transition ease-in-out hover:-translate-y-1 hover:scale-110  duration-300" />
-            </Link>{" "}
-            <form onSubmit={handleSubmit} className="max-w-md mx-auto">
+              <img src={Logo} alt="Logo" className="h-12 sm:h-14 lg:h-16 w-auto transition ease-in-out hover:-translate-y-0.5 hover:scale-105 duration-300" />
+            </Link>
+            <form onSubmit={handleSubmit} className="max-w-sm sm:max-w-md lg:max-w-lg xl:max-w-xl 2xl:max-w-2xl mx-auto w-full px-2 text-center">
               <div className="mb-4">
-                <label htmlFor="current password" className="block mb-1">
+                <label htmlFor="currentPassword" className="block mb-1 text-sm lg:text-base text-white">
                   Current Password
                 </label>
                 <input
-                  type="text"
-                  id="current password"
-                  name="current password"
-                  value={formData.currentPassword}
+                  type="password"
+                  id="currentPassword"
+                  name="currentPassword"
+                  value={formData.currentPassword || ""}
                   onChange={handleChange}
-                  className="border p-2 w-full rounded-xl"
+                  className="border p-2 lg:py-2.5 w-full rounded-xl"
                   required
                 />
               </div>
               <div className="mb-4">
-                <label htmlFor="New Password" className="block mb-1">
+                <label htmlFor="newPassword" className="block mb-1 text-sm lg:text-base text-white">
                   New Password
                 </label>
                 <input
-                  type="New Password"
-                  id="New Password"
-                  name="New Password"
-                  value={formData.newPassword}
+                  type="password"
+                  id="newPassword"
+                  name="newPassword"
+                  value={formData.newPassword || ""}
                   onChange={handleChange}
-                  className="border p-2 w-full rounded-xl"
+                  className="border p-2 lg:py-2.5 w-full rounded-xl"
                   required
                 />
               </div>
               <div className="mb-4">
-                <label htmlFor="Confirm New Password" className="block mb-1">
-                Confirm New Password
+                <label htmlFor="confirmNewPassword" className="block mb-1 text-sm lg:text-base text-white">
+                  Confirm New Password
                 </label>
                 <input
-                  type="Confirm New Password"
-                  id="Confirm New Password"
-                  name="Confirm New Password"
-                  value={formData.confirmNewPassword}
+                  type="password"
+                  id="confirmNewPassword"
+                  name="confirmNewPassword"
+                  value={formData.confirmNewPassword || ""}
                   onChange={handleChange}
-                  className="border p-2 w-full rounded-xl"
+                  className="border p-2 lg:py-2.5 w-full rounded-xl"
                   required
                 />
               </div>
-              
-              <button
-                type="submit"
-                className=" text-white text-center px-2 py-2 ml-28 transition ease-in-out hover:-translate-y-1 hover:scale-110  duration-300"
-              >
-                Change Password
-              </button>
+
+              <div className="flex justify-center">
+                <button
+                  type="submit"
+                  className="bg-teal-500 hover:bg-teal-600 text-white font-semibold py-2 lg:py-2.5 px-6 lg:px-8 rounded-md transition text-sm lg:text-base"
+                >
+                  Change Password
+                </button>
+              </div>
             </form>
           </div>
         </div>

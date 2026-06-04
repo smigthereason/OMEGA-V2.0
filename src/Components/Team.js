@@ -19,13 +19,20 @@ const Team = () => {
   ];
 
   return (
-    <div className="flex flex-wrap justify-center gap-4 w-auto place-content-evenly">
+    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-6 2xl:grid-cols-6 gap-3 sm:gap-4 lg:gap-5">
       {teamMembers.map((member, index) => (
-        <div key={index} className="bg-black border rounded-lg shadow-md p-4 max-w-xs transition ease-in-out  hover:-translate-y-1 hover:scale-110  duration-300">
-          <img src={member.image} alt={member.name} className="w-full h-auto bg-gray-900 mb-4 border rounded-lg transition ease-in-out  hover:-translate-y-1 hover:scale-100  duration-300" />
-          <h3 className="text-lg uppercase font-semibold mb-2">{member.name}</h3>
-          <p className="text-gray-600">{member.jobTitle}</p>
-          <button className="bg-teal-400 hover:bg-teal-500 duration-300   text-white px-4 py-2 rounded-md mt-4 focus:outline-none">
+        <div
+          key={index}
+          className="bg-[#111] border border-gray-800 rounded-xl shadow p-3 sm:p-4 lg:p-5 text-center transition hover:-translate-y-0.5 hover:border-teal-500/40 duration-300 flex flex-col"
+        >
+          <img
+            src={member.image}
+            alt={member.name}
+            className="w-full aspect-[4/3] object-cover bg-gray-900 mb-3 rounded-lg"
+          />
+          <h3 className="text-sm sm:text-base lg:text-lg uppercase font-semibold text-white tracking-wide">{member.name}</h3>
+          <p className="text-xs sm:text-sm lg:text-base text-gray-400 mt-0.5 mb-3 flex-1">{member.jobTitle}</p>
+          <button className="mt-auto w-full bg-teal-400 hover:bg-teal-500 active:bg-teal-600 text-white text-sm lg:text-base py-1.5 lg:py-2 rounded-md transition">
             Contact
           </button>
         </div>

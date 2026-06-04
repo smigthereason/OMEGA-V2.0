@@ -24,15 +24,15 @@ const SocialLinks = () => {
   };
 
   return (
-    <div className="bg-black rounded-lg p-6 w-full pt-10 justify-center h-screen ">
-      <h1 className="font-bold text-lg mb-4 uppercase text-white text-center">
+    <div className="bg-black rounded-lg p-6 w-full pt-10 justify-center min-h-[60vh] ">
+      <h1 className="font-bold text-lg lg:text-xl mb-6 uppercase text-white text-center">
         Social Links
       </h1>
-      <form onSubmit={handleSubmit} className=" max-w-md mx-auto text-center ">
-        <div className="mb-4 justify-center text-center">
+      <form onSubmit={handleSubmit} className="max-w-md lg:max-w-lg mx-auto">
+        <div className="mb-4">
           <label
             htmlFor="facebook"
-            className="block text-sm font-lg text-white font-bold ml-2 pt-2 "
+            className="block text-sm font-medium text-white mb-1"
           >
             Facebook Profile
           </label>
@@ -43,13 +43,13 @@ const SocialLinks = () => {
             value={socialLinks.facebook}
             onChange={handleChange}
             placeholder="Enter your Facebook profile URL"
-            className="mt-1 ml-24 p-2 block w-64 border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+            className="p-2 lg:py-2.5 block w-full border-gray-600 rounded-md focus:ring-1 focus:ring-teal-500 focus:border-teal-500 text-sm lg:text-base"
           />
         </div>
         <div className="mb-4">
           <label
             htmlFor="twitter"
-            className="block text-sm font-lg text-white font-bold ml-2 "
+            className="block text-sm font-medium text-white mb-1"
           >
             Twitter Profile
           </label>
@@ -60,13 +60,13 @@ const SocialLinks = () => {
             value={socialLinks.twitter}
             onChange={handleChange}
             placeholder="Enter your Twitter profile URL"
-            className="mt-1 ml-24 p-2 block w-64 border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+            className="p-2 lg:py-2.5 block w-full border-gray-600 rounded-md focus:ring-1 focus:ring-teal-500 focus:border-teal-500 text-sm lg:text-base"
           />
         </div>
         <div className="mb-4">
           <label
             htmlFor="instagram"
-            className="block text-sm font-lg text-white font-bold ml-2 pt-2 "
+            className="block text-sm font-medium text-white mb-1"
           >
             Instagram Profile
           </label>
@@ -77,23 +77,26 @@ const SocialLinks = () => {
             value={socialLinks.instagram}
             onChange={handleChange}
             placeholder="Enter your Instagram profile URL"
-            className="mt-1 ml-24 p-2 block w-64 border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+            className="p-2 lg:py-2.5 block w-full border-gray-600 rounded-md focus:ring-1 focus:ring-teal-500 focus:border-teal-500 text-sm lg:text-base"
           />
         </div>
-        <button
-          type="submit"
-          className=" text-white px-4 py-2 rounded-md transition ease-in-out hover:-translate-y-1 hover:scale-110  duration-300"
-        >
-          Save
-        </button>
-        <Link to="/settings">
+
+        <div className="flex justify-center flex-wrap gap-2 pt-2">
           <button
-            type="button"
-            className="btn-default ml-2 text-white transition ease-in-out hover:-translate-y-1 hover:scale-110  duration-300"
+            type="submit"
+            className="bg-teal-500 hover:bg-teal-600 text-white px-5 py-1.5 lg:py-2 lg:px-6 rounded-md transition text-sm lg:text-base"
           >
-            Cancel
+            Save
           </button>
-        </Link>
+          <Link to="/settings">
+            <button
+              type="button"
+              className="px-4 py-1.5 text-sm text-white/80 hover:text-white border border-white/30 rounded-md hover:bg-white/5 transition"
+            >
+              Cancel
+            </button>
+          </Link>
+        </div>
       </form>
     </div>
   );

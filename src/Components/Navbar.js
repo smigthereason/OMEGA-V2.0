@@ -1,75 +1,48 @@
-import React, { useState } from "react";
+import React from "react";
 import Logo from "../Assets/logo-no-background.png";
-// import LoginAudio from "../Assets/Metro Boomin, NAV, A Boogie wit da Hoodie, Swae Lee - Calling.mp3"; 
 import { Link } from "react-router-dom";
 import { HiMenuAlt1 } from "react-icons/hi";
-import Menu from "./Menu/Menu";
 
 const Navbar = ({ onMenuToggle }) => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  // const [audio] = useState(new Audio(LoginAudio)); 
-  // Create an audio object in state
-
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
-
-
-// console.log(audio); // Add this line to check the audio object
-
-// const handleLoginClick = () => {
-//   console.log("Login clicked");
-//   audio.play();
-// };
-
-// const handleLogoClick = () => {
-//   console.log("Logo clicked");
-//   if (!audio.paused) {
-//     audio.pause();
-//     audio.currentTime = 0;
-//   }
-// };
-  
-
   return (
-    <nav className="bg-black w-auto">
-      <div className="container flex items-center justify-between mx-3">
-        <div className="flex items-center px-2 py-2">
+    <nav className="bg-black sticky top-0 z-40 w-full">
+      <div className="max-w-screen-2xl mx-auto grid grid-cols-3 items-center px-3 sm:px-4 lg:px-8 py-2">
+        {/* Left: Hamburger */}
+        <div className="justify-self-start">
           <HiMenuAlt1
-            className="cursor-pointer text-white text-3xl"
+            className="cursor-pointer text-white text-3xl lg:text-4xl hover:text-teal-400 transition"
             onClick={onMenuToggle}
+            aria-label="Toggle menu"
           />
         </div>
 
-        <Link
-          to="/"
-          className="flex items-center text-white ml-60 px-2 py-2"
-          // onClick={handleLogoClick} // Add onClick event to stop audio when logo is clicked
-        >
-          <img
-            src={Logo}
-            alt="Logo"
-            className="h-20 w-auto transition ease-in-out hover:-translate-y-1 hover:scale-110 duration-300"
-          />
-        </Link>
+        {/* Center: Logo (perfectly centered on all sizes) */}
+        <div className="justify-self-center">
+          <Link to="/" className="flex items-center text-white">
+            <img
+              src={Logo}
+              alt="Logo"
+              className="h-10 sm:h-11 md:h-12 lg:h-14 w-auto transition ease-in-out hover:-translate-y-0.5 hover:scale-105 duration-300"
+            />
+          </Link>
+        </div>
 
-        <div className="flex items-center">
+        {/* Right: Auth links */}
+        <div className="justify-self-end flex items-center gap-1 sm:gap-2 text-sm sm:text-base lg:text-lg">
           <Link
             to="/login"
-            className="text-white py-2 px-6 rounded-md mr-4 transition ease-in-out hover:-translate-y-1 hover:scale-110 duration-300"
-            // onClick={handleLoginClick} // Add onClick event to play audio when Log in is clicked
+            className="text-white py-1.5 px-3 sm:py-2 sm:px-5 lg:py-2.5 lg:px-6 rounded-md hover:bg-white/10 transition"
           >
             Login
           </Link>
           <Link
             to="/signup"
-            className="text-white py-2 px-6 rounded-md transition ease-in-out hover:-translate-y-1 hover:scale-110 duration-300"
+            className="text-white py-1.5 px-3 sm:py-2 sm:px-5 lg:py-2.5 lg:px-6 rounded-md bg-teal-500/90 hover:bg-teal-500 transition"
           >
             Sign Up
           </Link>
         </div>
       </div>
-      {isMenuOpen && <Menu isOpen={isMenuOpen} onClose={toggleMenu} />}
     </nav>
   );
 };

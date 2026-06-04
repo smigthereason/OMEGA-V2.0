@@ -20,54 +20,56 @@ const App = () => {
 
   
   return (
-    <div className="App">
-      {/* <Nav /> */}
+    <div className="App min-h-screen bg-[#292929]">
       <Navbar onMenuToggle={toggleMenu} />
 
-      <div className="flex">
+      <div className="flex min-h-[calc(100vh-80px)] relative">
         <Menu isOpen={isMenuOpen} onClose={toggleMenu} />
-        
-        
-        <div className="flex-1">
-          <section className="video-section">
+
+        <div className="flex-1 min-w-0">
+          {/* Full-bleed video hero with title only - clean, no overflowing grid */}
+          <section className="video-section relative h-[60vh] min-h-[380px] md:h-[65vh] lg:h-[70vh]">
             <video
               src={VideoBackground}
               autoPlay
               loop
               muted
+              playsInline
               className="video-background"
             />
-            <div className="content-overlay text-white">
-              <h1 className="text-3xl text-center py-9">LATEST RELEASES</h1>
-
-              {/* Pass filteredGames to GameList */}
-              <div className="game-list-section px-4">
-                <GameList games={filteredGames} />
-              </div>
+            <div className="content-overlay text-white relative z-10 h-full flex flex-col items-center justify-center px-4 sm:px-6 md:px-8 lg:px-12 text-center">
+              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl 2xl:text-7xl font-semibold tracking-[3px] drop-shadow-lg">
+                LATEST RELEASES
+              </h1>
+              <p className="mt-3 text-lg sm:text-xl text-white/80 max-w-md">
+                Discover the newest titles from the world of Omega
+              </p>
             </div>
           </section>
-          <section className="discount-section">
+
+          {/* Dedicated Latest Releases grid section - solid background, proper flow */}
+          <section className="px-4 sm:px-6 md:px-8 lg:px-12 2xl:px-16 max-w-screen-2xl mx-auto pt-8 pb-12">
+            <h2 className="text-xl sm:text-2xl lg:text-3xl font-semibold text-white tracking-wide mb-4">Explore the latest titles</h2>
+            <GameList games={filteredGames} />
+          </section>
+
+          <section className="discount-section px-4 sm:px-6 md:px-8 lg:px-12 2xl:px-16 max-w-screen-2xl mx-auto">
             <Discount />
           </section>
-          <div className="content-overlay text-white">
-              <h1 className="text-3xl text-center py-9">MEET THE OMEGA TEAM</h1>
 
-            
-              <div className="team-section px-8">
+          <div className="content-overlay text-white px-4 sm:px-6 md:px-8 lg:px-12 2xl:px-16 max-w-screen-2xl mx-auto">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl 2xl:text-6xl text-center py-6 md:py-9 font-semibold tracking-wide">MEET THE OMEGA TEAM</h1>
+
+            <div className="team-section">
               <Team />
-              </div>
             </div>
+          </div>
 
-            <div>
-            <div className=""></div>
+          <div className="max-w-screen-2xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12 2xl:px-16">
             <Sponsors />
           </div>
-          
 
-          <div>
-            <div className=""></div>
-            <Footer />
-          </div>
+          <Footer />
         </div>
       </div>
     </div>

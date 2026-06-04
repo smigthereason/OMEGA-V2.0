@@ -1,90 +1,90 @@
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
-@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap');
-
-
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap");
 
 body {
-  margin: 0;
-  font-family: "Manrope", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 900;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  background-color: rgb(41, 41, 41);
-  z-index: 10000;
+    margin: 0;
+    font-family: "Manrope", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 900;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: rgb(41, 41, 41);
+    z-index: 10000;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+    font-family:
+        source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
 }
 .App {
-  position: relative;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* Consistent dark theme form controls */
+input,
+select,
+textarea {
+    background-color: #000000;
+    color: #ffffff !important;
+    border: 1px solid #4b5563; /* gray-600 */
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: #9ca3af; /* gray-400 */
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    outline: none;
+    border-color: #14b8a6; /* teal-500 */
+    box-shadow: 0 0 0 1px #14b8a6;
+}
+
+select {
+    color: #ffffff;
 }
 
 .video-section {
-  position: relative;
-  overflow: hidden;
+    position: relative;
+    overflow: hidden;
 }
 
 .video-background {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: fill;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
 }
-
-
-.content-wrapper {
-  transition: transform 0.3s ease;
-  transform: translateX(0);
-}
-
-.content-wrapper.pushed {
-  transform: translateX(300px); /* Adjust width based on menu width */
-}
-
 
 .content-overlay {
-  position: relative;
-  z-index: 1;
+    position: relative;
+    z-index: 1;
 }
 
 .game-list-section {
-  /* max-height: 800px;  */
-  /* overflow-y: auto;  */
-  overflow-x: hidden;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
+    overflow-x: hidden;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
 }
+
 .discount-section {
-  max-width: 1280px;
-  /* max-height: 500px; */
-  overflow-x: hidden;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-}
-.footer-section {
-  width: 100%;
-  position: relative;
-  display: flex;
-  bottom: 0;
-  background: #181818;
-  color: #f1f1f1;
-  padding: 100px 0 30px;
-  font-size: 13px;
-  line-height: 20px;
-  .footer-content {
-    width: 100%;}
+    overflow-x: hidden;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
 }
 
 .vertical-text {
-  writing-mode: vertical-rl; 
-  font-size: xx-large;
-  font-style: italic;
-  
+    writing-mode: vertical-rl;
+    font-size: 1.1rem;
+    line-height: 1.1;
+    font-style: italic;
+    letter-spacing: 2px;
 }

@@ -67,9 +67,9 @@ const GameList = ({ filteredGames }) => {
     }
 
     return (
-      <div className="flex">
+      <div className="flex justify-center">
         {stars.map((star, index) => (
-          <div key={index} className="flex items-center text-center justify-between">
+          <div key={index} className="flex items-center">
             {star}
           </div>
         ))}
@@ -77,47 +77,53 @@ const GameList = ({ filteredGames }) => {
     );
   };
 
+  // Limit to a reasonable number for the landing page grid (full list is available in Search)
+  const displayGames = games.slice(0, 18);
+
   return (
-    <div className="grid grid-cols-4 gap-4">
-      {games.map((game) => (
+    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 2xl:grid-cols-6 gap-3 sm:gap-4 lg:gap-5">
+      {displayGames.map((game) => (
         <a
           key={game.id}
-          className="bg-transparent bg-opacity-60 backdrop-blur-lg shadow-lg rounded-lg overflow-hidden text-white border-2 border-gray-500"
+          className="bg-[#1f1f1f] bg-opacity-70 backdrop-blur shadow-lg rounded-xl overflow-hidden text-white border border-gray-700 hover:border-teal-500/60 transition flex flex-col"
           href="/login"
         >
           <img
             src={game.background_image}
             alt={game.name}
-            className="w-full h-48 object-cover object-center px-4 py-4 rounded-xl"
+            className="w-full h-36 sm:h-40 md:h-44 lg:h-48 xl:h-52 2xl:h-56 object-cover"
           />
-          <div className="p-4 flex flex-col justify-between items-center">
-            <div>
-              {/* <h2 className="text-xl font-semibold mb-2">{game.name}</h2> */}
-              <TextWithMarquee className="text-xl font-semibold mb-2">
-                {game.name}
-              </TextWithMarquee>
-              <div className="flex items-center justify-center mb-2 gap-3">
-                {game.platforms.map((platform) => {
+          <div className="p-3 lg:p-4 flex flex-col flex-1">
+            <TextWithMarquee className="text-sm sm:text-base lg:text-lg font-semibold leading-tight mb-1.5 block">
+              {game.name}
+            </TextWithMarquee>
+
+            {/* Consistent height for icons + genres so layout doesn't shift with varying # of platforms */}
+            <div className="min-h-[52px] flex flex-col justify-center mb-1">
+              <div className="flex items-center justify-center mb-1 gap-2 flex-wrap min-h-[24px]">
+                {game.platforms?.map((platform) => {
                   const platformIcon = getPlatformIcon(platform.platform.name);
                   if (platformIcon) {
                     return (
-                      <span key={platform.platform.id}>{platformIcon}</span>
+                      <span key={platform.platform.id} className="text-lg lg:text-xl">{platformIcon}</span>
                     );
                   }
                   return null;
                 })}
               </div>
-              <div className="my-4">
-                <p className="text-white">Genres:</p>
-                <TextWithMarquee>
-                  {game.genres.slice(0,3).map((genre) => genre.name).join(", ")}
+
+              <div className="text-xs lg:text-sm text-gray-400">
+                <span className="block mb-0.5 text-[10px] lg:text-xs uppercase tracking-widest">Genres</span>
+                <TextWithMarquee className="text-xs lg:text-sm">
+                  {game.genres?.slice(0, 3).map((genre) => genre.name).join(", ")}
                 </TextWithMarquee>
-                {/* <p className={`marquee-text ${isMarquee ? 'animate-marquee whitespace-nowrap' : ''}`}>{game.genres.map((genre) => genre.name).join(", ")}</p> */}
               </div>
             </div>
-            <p className="text-center text-white mb-2 ">
+
+            {/* Stars pushed to center bottom of the card */}
+            <div className="mt-auto pt-1 text-center">
               {renderRatingStars(game.rating)}
-            </p>
+            </div>
           </div>
         </a>
       ))}
